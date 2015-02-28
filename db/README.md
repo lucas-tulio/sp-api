@@ -12,7 +12,7 @@
 
 Caso o dbf2mysql não insira os dados como deveria, faça o seguinte:
 
-1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf > import.txt`
+1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf > input.txt`
 
 2. Rode o script `python fix_inserts.py`. Ele vai gerar o arquivo `insert.sql` com todos os inserts corretos.
 
