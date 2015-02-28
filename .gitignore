@@ -52,4 +52,7 @@ docs/_build/
 
 # PyBuilder
 target/
-# unparsed_data
+
+# unparsed_data and database
+db/input.txt
+db/insert.sql
