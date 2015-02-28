@@ -8,11 +8,11 @@
 
 2. O dbf2mysql é a ferramenta que importa os dados em formato dbf para um banco MySQL. Instale usando: `apt-get install dbf2mysql`
 
-3. Rode o dbf2mysql usando este comando: `dbf2mysql -n -h localhost -d sp_api -t import_table -c -U root Mobilidade_2012_v0.dbf`
+3. Rode o dbf2mysql usando este comando: `dbf2mysql -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf`
 
 Caso o dbf2mysql não insira os dados como deveria, faça o seguinte:
 
-1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t import_table -c -U root Mobilidade_2012_v0.dbf > import.txt`
+1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf > import.txt`
 
 2. `python fix_inserts.py`. Este script vai gerar o arquivo `insert.sql` com todos os inserts corretos.
 
