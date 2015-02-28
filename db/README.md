@@ -14,6 +14,6 @@ Caso o dbf2mysql não insira os dados como deveria, faça o seguinte:
 
 1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf > import.txt`
 
-2. `python fix_inserts.py`. Este script vai gerar o arquivo `insert.sql` com todos os inserts corretos.
+2. Rode o script `python fix_inserts.py`. Ele vai gerar o arquivo `insert.sql` com todos os inserts corretos.
 
-3. Importe o arquivo `insert.sql` para seu MySQL. Algo tipo: `mysql -u root sp_api < insert.sql
+3. Importe o arquivo `insert.sql` para seu MySQL. Algo tipo: `mysql -u root sp_api < insert.sql`. A tabela deve terminar com 53505 linhas.
