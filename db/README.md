@@ -1,19 +1,9 @@
-### Criar banco
-
-1. Entre no seu MySQL e crie um schema chamado sp_api: `create schema sp_api default charset=utf8`
-
 ### Importar os dados
 
-1. Baixe e extraia este arquivo: http://www.metro.sp.gov.br/metro/arquivos/mobilidade-2012/banco-de-dados/Dbase.zip
+1. Instale o dbf2mysql: `apt-get install dbf2mysql`
 
-2. O dbf2mysql é a ferramenta que importa os dados em formato dbf para um banco MySQL. Instale usando: `apt-get install dbf2mysql`
+1. Baixe o arquivo .dbf da pesquisa do metrô de São Paulo: http://www.metro.sp.gov.br/metro/arquivos/mobilidade-2012/banco-de-dados/Dbase.zip
 
-3. Rode o dbf2mysql usando este comando: `dbf2mysql -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf`
+1. Extraia o Dbase.zip, pegue o arquivo `Mobilidade_2012_v0.dbf` e copie para dentro de `unparsed_data`.
 
-Caso o dbf2mysql não insira os dados como deveria, faça o seguinte:
-
-1. `dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root Mobilidade_2012_v0.dbf > input.txt`
-
-2. Rode o script `python fix_inserts.py`. Ele vai gerar o arquivo `insert.sql` com todos os inserts corretos.
-
-3. Importe o arquivo `insert.sql` para seu MySQL. Algo tipo: `mysql -u root sp_api < insert.sql`. A tabela deve terminar com 53505 linhas.
+1. Rode o script que gera o banco: `python create-schema.py`
