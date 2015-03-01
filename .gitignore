@@ -54,7 +54,6 @@ docs/_build/
 target/
 
 # unparsed_data and database
-db/input.txt
-db/insert.sql
-db/domains-inserts.sql
+db/raw_data.txt
 db/create-schema.sql
+unparsed_data/Mobilidade_2012_v0.dbf
