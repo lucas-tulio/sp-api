@@ -2,12 +2,23 @@
 # -*- coding: utf-8
 
 import os
+import sys
+
+# ---------------------------------
+# Read args
+# ---------------------------------
+
+if len(sys.argv) != 2:
+  print "Usage: python create-schema.py dbf_file_path"
+  sys.exit()
+
+dbf_file_path = sys.argv[1]
 
 # ---------------------------------
 # Open files
 # ---------------------------------
 
-print "Reading input files..."
+print "Generating script..."
 
 municipios = file("../unparsed_data/municipios.csv")
 distritos = file("../unparsed_data/distritos.csv")
@@ -20,11 +31,8 @@ out = file("create-schema.sql", "w")
 # Create schema / drop tables
 # ---------------------------------
 
-print "Creating schema..."
-
 out.write("CREATE SCHEMA IF NOT EXISTS `sp_api` DEFAULT CHARSET=utf8;\n")
 out.write("USE `sp_api`;\n")
-out.write("SET foreign_key_checks = 0;\n")
 out.write("DROP TABLE IF EXISTS `municipios`;\n")
 out.write("DROP TABLE IF EXISTS `distritos`;\n")
 out.write("DROP TABLE IF EXISTS `zonas_tmp`;\n")
@@ -34,8 +42,6 @@ out.write("DROP TABLE IF EXISTS `transportes`;\n")
 # ---------------------------------
 # Create tables
 # ---------------------------------
-
-print "Creating tables..."
 
 out.write("CREATE TABLE `municipios` (\n")
 out.write("`id` INT(11) UNSIGNED NOT NULL,\n")
@@ -61,8 +67,6 @@ out.write(") ENGINE=InnoDB DEFAULT CHARSET=utf8;\n")
 # ---------------------------------
 # Inserts
 # ---------------------------------
-
-print "Inserting domain data..."
 
 for line in municipios:
   line_split = line.strip("\n").split(";")
@@ -108,7 +112,7 @@ out.write("DROP TABLE `zonas_tmp`;\n")
 # -----------------------------------
 
 print "Preparing raw data..."
-os.system("dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root ../unparsed_data/Mobilidade_2012_v0.dbf > raw_data.txt");
+os.system("dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U root " + dbf_file_path + " > raw_data.txt");
 
 raw_data = open("raw_data.txt")
 
@@ -128,14 +132,8 @@ for line in raw_data:
     break
 
 # ---------------------------------
-# Turn foreign key checks back on
+# Done!
 # ---------------------------------
-out.write("SET foreign_key_checks = 1;\n")
-
-# ---------------------------------
-# Import it into MySQL
-# ---------------------------------
-print "Importing everything into MySQL..."
-os.system("mysql -u root < create-schema.sql")
 
 print "Done!"
+print "Now import 'create-schema.sql' into your database"
