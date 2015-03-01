@@ -57,3 +57,4 @@ target/
 db/input.txt
 db/insert.sql
 db/domains-inserts.sql
+db/create-schema.sql
