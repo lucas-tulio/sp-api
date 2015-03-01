@@ -56,4 +56,4 @@ target/
 # unparsed_data and database
 db/raw_data.txt
 db/*.sql
-unparsed_data/Mobilidade_2012_v0.dbf
+*.dbf
