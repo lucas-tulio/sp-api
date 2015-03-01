@@ -20,12 +20,6 @@ CREATE TABLE `zonas_tmp` (
 `municipio_id` INT(11) UNSIGNED NOT NULL
 );
 
-CREATE TABLE `zonas` (
-  `id` int(11) unsigned NOT NULL,
-  `zona` varchar(255) DEFAULT NULL,
-  `municipio` varchar(255) NOT NULL
-);
-
 CREATE TABLE `transportes` (
 `id` INT(11) UNSIGNED NOT NULL,
 `transporte` VARCHAR(255) NOT NULL
