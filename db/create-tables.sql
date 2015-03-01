@@ -14,10 +14,16 @@ CREATE TABLE `distritos` (
 `distrito` VARCHAR(255) NOT NULL
 );
 
-CREATE TABLE `zonas` (
+CREATE TABLE `zonas_tmp` (
 `id` INT(11) UNSIGNED NOT NULL,
 `distrito_id` INT(11) UNSIGNED NOT NULL,
 `municipio_id` INT(11) UNSIGNED NOT NULL
+);
+
+CREATE TABLE `zonas` (
+  `id` int(11) unsigned NOT NULL,
+  `zona` varchar(255) DEFAULT NULL,
+  `municipio` varchar(255) NOT NULL
 );
 
 CREATE TABLE `transportes` (

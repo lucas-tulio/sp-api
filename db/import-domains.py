@@ -12,7 +12,7 @@ out.write("USE `sp_api`;\n")
 
 out.write("TRUNCATE TABLE `municipios`;\n")
 out.write("TRUNCATE TABLE `distritos`;\n")
-out.write("TRUNCATE TABLE `zonas`;\n")
+out.write("TRUNCATE TABLE `zonas_tmp`;\n")
 out.write("TRUNCATE TABLE `transportes`;\n")
 
 for line in municipios:
@@ -32,10 +32,13 @@ for line in zonas:
   id_zona = line_split[0]
   id_distrito = line_split[1]
   id_municipio = line_split[2]
-  out.write("INSERT INTO `zonas` VALUES (" + id_zona + ", " + id_distrito + ", " + id_municipio + ");\n")
+  out.write("INSERT INTO `zonas_tmp` VALUES (" + id_zona + ", " + id_distrito + ", " + id_municipio + ");\n")
 
 for line in transportes:
   line_split = line.strip("\n").split(";")
   id_transporte = line_split[0]
   transporte = line_split[1]
   out.write("INSERT INTO `transportes` VALUES (" + id_transporte + ", '" + transporte + "');\n")
+
+# Actual 'zonas' table
+out.write("create table zonas as select z.id, group_concat(distinct d.distrito SEPARATOR ', ') zona, if(m.municipio = 'São Paulo', 'São Paulo', 'Outro') municipio from zonas_tmp z inner join distritos d on z.distrito_id = d.id inner join municipios m on z.municipio_id = m.id group by z.id;");
