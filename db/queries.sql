@@ -3,3 +3,8 @@ select z.id, if(m.municipio = 'São Paulo', 'São Paulo', 'Outros') municipio, g
 
 -- Média de moradores por domicílio, por região
 select z.id, group_concat(distinct d.distrito SEPARATOR ', ') regioes, avg(sp.no_morad) moradores from zonas z inner join municipios m on z.municipio_id = m.id inner join distritos d on z.distrito_id = d.id inner join sp on sp.zona = z.id group by z.id order by moradores;
+
+-- Duração média da viagem ao trabalho, por região
+select z.id, group_concat(distinct d.distrito SEPARATOR ', ') regioes, avg(sp.duracao) duracao from zonas z inner join municipios m on z.municipio_id = m.id inner join distritos d on z.distrito_id = d.id inner join sp on sp.zona = z.id where sp.motivo_o in (1,2,3) group by z.id order by duracao;
+
+-- 
