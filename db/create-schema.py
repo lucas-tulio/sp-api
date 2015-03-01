@@ -38,6 +38,7 @@ out.write("DROP TABLE IF EXISTS `distritos`;\n")
 out.write("DROP TABLE IF EXISTS `zonas_tmp`;\n")
 out.write("DROP TABLE IF EXISTS `zonas`;\n")
 out.write("DROP TABLE IF EXISTS `transportes`;\n")
+out.write("DROP TABLE IF EXISTS `sp`;\n")
 
 # ---------------------------------
 # Create tables
@@ -122,7 +123,7 @@ limit = 0
 
 for line in raw_data:
   if i >= 244:
-    clean_line = line.strip("\n")[13:].replace("*", "0") + ";\n"
+    clean_line = line.strip("\n")[13:].replace("*", "0").strip() + ";\n"
     if clean_line != ".;\n":
       out.write(clean_line)
   
