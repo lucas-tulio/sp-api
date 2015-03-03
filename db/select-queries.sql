@@ -31,7 +31,7 @@ where sp.motivo_o in (1,2,3)
 group by sp.modo1
 order by duracao;
 
--- De onde saem mais carros
+-- De onde saem mais carros (needs fix)
 select t1.zona, t1.viagens, t2.count, t1.viagens / t2.count * 100 perc
 from
   (select z.zona, count(*) viagens
@@ -52,7 +52,7 @@ from
 where t1.zona = t2.zona
 order by perc desc;
 
--- Mesmo que a de cima mas eu fiz quando tava com muito sono
+-- Mesmo que a de cima mas eu fiz quando tava com muito sono (needs fix)
 select t4.zona, t4.viagens, t4.count, t4.norm, t4.viagens / t4.norm divis
 from (
   select t1.zona, t1.viagens, t2.count, t2.count /
