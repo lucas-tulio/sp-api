@@ -3,6 +3,7 @@
 
 import os
 import sys
+from sys import platform
 
 # ---------------------------------
 # Read args
@@ -123,7 +124,10 @@ os.system(command)
 # -----------------------------------
 
 print "Preparing raw data..."
-command = "dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U " + mysql_user + " "
+command = ""
+if platform == "darwin":
+  command = "./"
+command = command + "dbf2mysql -vvvv -n -h localhost -d sp_api -t sp -c -U " + mysql_user + " "
 if mysql_pass != "":
   command = command + " -P " + mysql_pass
 command = command + " " + dbf_file_path + " > raw_data.txt"
