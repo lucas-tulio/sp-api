@@ -14,7 +14,7 @@
   python create-schema.py ../unparsed_data/Mobilidade_2012_v0.dbf mysql_user mysql_pass
   ```
 
-### Mac
+#### Mac
 
 1. Instale o dbf2mysql-mac: https://github.com/lucasdnd/dbf2mysql-mac
 
