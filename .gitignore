@@ -57,3 +57,5 @@ target/
 db/raw_data.txt
 db/*.sql
 *.dbf
+
+.DS_Store
