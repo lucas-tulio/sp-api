@@ -59,3 +59,4 @@ db/*.sql
 *.dbf
 
 .DS_Store
+dbf2mysql
