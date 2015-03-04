@@ -1,3 +1,5 @@
+CREATE DATABASE spapi;
+
 CREATE TABLE Mobilidade_2012_v0 (
 _index int PRIMARY KEY AUTO_INCREMENT,
 ZONA int,
