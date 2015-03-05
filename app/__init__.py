@@ -5,13 +5,27 @@ from flask import make_response
 from flask.ext.sqlalchemy import SQLAlchemy
 
 app = Flask(__name__)
+db = SQLAlchemy(app)
 
-@app.route('/todo/api/v1.0/tasks/<int:task_id>', methods=['GET'])
-def get_task(task_id):
-    task = [task for task in tasks if task['id'] == task_id]
-    if len(task) == 0:
-        abort(404)
-    return jsonify({'task': task[0]})
+zonas = {
+  "1": "teste 1",
+  "2": "teste 2"
+}
+
+@app.route('/', methods=['GET'])
+def hello():
+  return "Hi!"
+
+@app.route('/zona/<int:zona_id>', methods=['GET'])
+def get_zona(zona_id):
+  print(len(zonas))
+  if zona_id == 0 or zona_id > len(zonas):
+    abort(404)
+  return jsonify({'zona': zonas[str(zona_id)]})
+
+@app.route('/zonas', methods=['GET'])
+def get_zonas():
+    return jsonify(zonas)
 
 @app.errorhandler(404)
 def not_found(error):
