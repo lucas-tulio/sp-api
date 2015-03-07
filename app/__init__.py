@@ -25,6 +25,11 @@ def get_zonas():
   result = db.get_zonas()
   return jsonify(result)
 
+@app.route('/moradores_por_domicilio', methods=['GET'])
+def get_moradores():
+  result = db.get_moradores_por_domicilio()
+  return jsonify(result)
+
 @app.errorhandler(404)
 def not_found(error):
   return make_response(jsonify({'error': 'Not found'}), 404)

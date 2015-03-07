@@ -69,12 +69,15 @@ class Database:
     self._disconnect()
     return False
 
-  def get_moradores_por_regiao(self):
+  def get_moradores_por_domicilio(self):
     self._connect()
     try:
       self.cur.execute("""select z.zona, avg(sp.no_morad) moradores from zonas z inner join sp on sp.zona = z.id group by z.id order by moradores""")
       result = self.cur.fetchall()
-      return result
+      json = []
+      for row in result:
+        json.append((row[0], float(str(row[1]))))
+      return json
 
     except Exception as e:
       print("Error running query")
