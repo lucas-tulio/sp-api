@@ -60,3 +60,4 @@ db/*.sql
 
 .DS_Store
 dbf2mysql
+db.conf
