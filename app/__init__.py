@@ -4,6 +4,7 @@ from flask import jsonify
 from flask import abort
 from flask import make_response
 from app.db import Database
+import json
 
 app = Flask(__name__)
 app.config.from_object('config')
@@ -28,7 +29,8 @@ def get_zonas():
 @app.route('/moradores_por_domicilio', methods=['GET'])
 def get_moradores():
   result = db.get_moradores_por_domicilio()
-  return jsonify(result)
+  j = json.dumps(result, ensure_ascii=False, indent=2)
+  return app.response_class(j, content_type='application/json; charset=utf8')
 
 @app.errorhandler(404)
 def not_found(error):
