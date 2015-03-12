@@ -1,6 +1,4 @@
--- Antes de mais nada:
--- Número de entrevistas feitas em cada zona.
--- Use este valor para normalizar outras consultas quando necessário
+-- Quantidade de dados, por zona
 select z.zona, count(*) count
 from zonas z
 inner join sp on z.id = sp.zona
