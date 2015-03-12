@@ -1,1 +1,0 @@
-Dados não parseados

@@ -53,11 +53,5 @@ docs/_build/
 # PyBuilder
 target/
 
-# unparsed_data and database
-db/raw_data.txt
-db/*.sql
-*.dbf
-
 .DS_Store
-dbf2mysql
-db.conf
+db/create-schema.sql
