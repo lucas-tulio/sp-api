@@ -12,7 +12,9 @@ with open("additional-tables.sql", "w") as out:
   # Should loop through all files in directory
   with open("../unparsed-data/1-geral.csv") as f:
     
-    out.write("create table general (\n")
+    table_name = "general"
+    table_fields = []
+    out.write("create table " + table_name + " (\n")
     
     i = 0
     for line in f:
@@ -24,16 +26,34 @@ with open("additional-tables.sql", "w") as out:
 
         # table columns
         fields = line.split(";")
-        out.write("  " + fields[0].lower() + " int(11) unsigned not null primary key auto_increment")
+        zona_field = fields[0].lower()
+        table_fields.append(zona_field)
+        out.write("  " + zona_field + " int(11) unsigned not null primary key")
 
-        for f in fields[1:]:
-          f = strip_accents(f.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").lower())
-          out.write(",\n  " + f + " int(11)")
+        for field in fields[1:]:
+          field = strip_accents(field.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").lower())
+          table_fields.append(field)
+          out.write(",\n  " + field + " int(11)")
 
         out.write("\n) engine=innodb charset=utf8;\n\n")
 
       else:
+        
         # insert data
-        #print(line.split(";"))
-        pass
+        data = line.split(";")
+        if data[0] == "" or data[0] == "Total":
+          continue
+
+        insert_line = "insert into " + table_name + " values ("
+        
+        j = 0
+        for value in data:
+          insert_line = insert_line + value.split(".")[0]
+          if j != len(data) - 1:
+            insert_line = insert_line + ", "
+          j = j + 1
+        
+        insert_line = insert_line + ");\n"
+        out.write(insert_line)
+        
       i = i + 1
