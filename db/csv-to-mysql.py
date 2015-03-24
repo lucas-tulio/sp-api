@@ -21,6 +21,8 @@ with open("additional-tables.sql", "w") as out:
 
       table_name = filename.split("-")[1].split(".")[0]
       table_fields = []
+
+      out.write("\ndrop table if exists " + table_name + ";")
       out.write("\ncreate table " + table_name + " (\n")
       
       i = 0

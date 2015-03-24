@@ -1,5 +1,6 @@
 use sp_api;
 
+drop table if exists geral;
 create table geral (
   zona int(11) unsigned not null primary key,
   domicilios int(11),
@@ -45,6 +46,7 @@ insert into geral values (29, 222069, 226641, 763799, 168810, 256264, 161335, 12
 insert into geral values (30, 75578, 76045, 256370, 65489, 114927, 57697, 477859, 476944, 36747);
 insert into geral values (31, 518591, 520586, 1742819, 449486, 717219, 324461, 3344374, 3339224, 55476);
 
+drop table if exists matriculas_escolares_por_tipo;
 create table matriculas_escolares_por_tipo (
   zona int(11) unsigned not null primary key,
   publica int(11),
@@ -84,6 +86,7 @@ insert into matriculas_escolares_por_tipo values (29, 141916, 26894, 168810);
 insert into matriculas_escolares_por_tipo values (30, 56266, 9223, 65489);
 insert into matriculas_escolares_por_tipo values (31, 365888, 83597, 449486);
 
+drop table if exists empregos_por_setor;
 create table empregos_por_setor (
   zona int(11) unsigned not null primary key,
   setor_secundario int(11),
@@ -124,6 +127,7 @@ insert into empregos_por_setor values (29, 62873, 192692, 698, 256264);
 insert into empregos_por_setor values (30, 35374, 79553, 0, 114927);
 insert into empregos_por_setor values (31, 157481, 559738, 0, 717219);
 
+drop table if exists empregos_por_classe;
 create table empregos_por_classe (
   zona int(11) unsigned not null primary key,
   agricola int(11),
@@ -175,6 +179,7 @@ insert into empregos_por_classe values (29, 698, 22221, 40652, 41078, 7679, 1005
 insert into empregos_por_classe values (30, 0, 9752, 25622, 18995, 3498, 2334, 466, 2801, 3563, 3951, 10619, 9154, 2334, 21831, 114927);
 insert into empregos_por_classe values (31, 0, 51004, 106476, 150594, 37057, 23675, 18393, 22194, 12923, 27850, 50326, 40564, 18272, 157886, 717219);
 
+drop table if exists empregos_por_vinculo;
 create table empregos_por_vinculo (
   zona int(11) unsigned not null primary key,
   assalariado_com_carteira int(11),
@@ -220,6 +225,7 @@ insert into empregos_por_vinculo values (29, 116711, 17221, 28812, 81881, 3957, 
 insert into empregos_por_vinculo values (30, 65878, 6537, 7990, 30239, 1400, 222, 2659, 0, 114927);
 insert into empregos_por_vinculo values (31, 396317, 33774, 51319, 198072, 4821, 11647, 18875, 2391, 717219);
 
+drop table if exists empregos_por_tipo_localidade;
 create table empregos_por_tipo_localidade (
   zona int(11) unsigned not null primary key,
   empregos_em_endereco_fixo int(11),
@@ -260,6 +266,7 @@ insert into empregos_por_tipo_localidade values (29, 23039, 196221, 37003, 25626
 insert into empregos_por_tipo_localidade values (30, 10740, 95781, 8405, 114927);
 insert into empregos_por_tipo_localidade values (31, 60820, 606065, 50334, 717219);
 
+drop table if exists emprego_interno_externo;
 create table emprego_interno_externo (
   zona int(11) unsigned not null primary key,
   trabalho_externo int(11),
@@ -299,6 +306,7 @@ insert into emprego_interno_externo values (29, 45414, 210849, 256264);
 insert into emprego_interno_externo values (30, 19850, 95076, 114927);
 insert into emprego_interno_externo values (31, 149196, 568023, 717219);
 
+drop table if exists viagens_por_modo;
 create table viagens_por_modo (
   zona int(11) unsigned not null primary key,
   onibus int(11),
@@ -348,6 +356,7 @@ insert into viagens_por_modo values (29, 295322, 14454, 75819, 230920, 76666, 51
 insert into viagens_por_modo values (30, 123943, 4710, 15116, 96249, 38192, 0, 7204, 1107, 10720, 2183, 177530, 904, 477860);
 insert into viagens_por_modo values (31, 817872, 67573, 201700, 661091, 238105, 0, 66739, 185079, 95811, 26965, 977197, 6242, 3344374);
 
+drop table if exists viagens_por_tipo;
 create table viagens_por_tipo (
   zona int(11) unsigned not null primary key,
   coletivo int(11),
@@ -389,6 +398,7 @@ insert into viagens_por_tipo values (29, 438065, 345637, 783702, 513831, 1297533
 insert into viagens_por_tipo values (30, 152080, 146065, 298145, 179713, 477858);
 insert into viagens_por_tipo values (31, 1338963, 1001249, 2340212, 1004162, 3344374);
 
+drop table if exists viagens_produzidas_por_motivo;
 create table viagens_produzidas_por_motivo (
   zona int(11) unsigned not null primary key,
   trabalho_na_industria int(11),
@@ -435,6 +445,7 @@ insert into viagens_produzidas_por_motivo values (29, 109552, 112061, 414447, 49
 insert into viagens_produzidas_por_motivo values (30, 61370, 32059, 144228, 196199, 7096, 4673, 6071, 0, 26164, 477860);
 insert into viagens_produzidas_por_motivo values (31, 325518, 326265, 970490, 1199530, 119472, 84446, 56246, 5471, 256936, 3344374);
 
+drop table if exists tempo_medio_viagens;
 create table tempo_medio_viagens (
   zona int(11) unsigned not null primary key,
   coletivo_ int(11),
@@ -475,6 +486,7 @@ insert into tempo_medio_viagens values (29, 65, 32, 14, 20);
 insert into tempo_medio_viagens values (30, 67, 34, 17, 8);
 insert into tempo_medio_viagens values (31, 62, 34, 16, 46);
 
+drop table if exists pop_por_faixa_etaria;
 create table pop_por_faixa_etaria (
   zona int(11) unsigned not null primary key,
   ate_3 int(11),
@@ -523,6 +535,7 @@ insert into pop_por_faixa_etaria values (29, 32115, 25832, 41192, 51664, 41192, 
 insert into pop_por_faixa_etaria values (30, 7004, 11207, 14943, 19146, 17278, 21480, 32221, 35023, 37358, 36891, 23815, 256370);
 insert into pop_por_faixa_etaria values (31, 109057, 62917, 98570, 123738, 81792, 148905, 192947, 308296, 241184, 174072, 201336, 1742819);
 
+drop table if exists viagens_atraidas_por_modo;
 create table viagens_atraidas_por_modo (
   zona int(11) unsigned not null primary key,
   onibus_ int(11),
@@ -572,6 +585,7 @@ insert into viagens_atraidas_por_modo values (29, 292731, 13638, 75475, 231227, 
 insert into viagens_atraidas_por_modo values (30, 121047, 5054, 15661, 96598, 39829, 0, 6306, 1106, 10720, 2183, 177530, 903, 476944);
 insert into viagens_atraidas_por_modo values (31, 823812, 67115, 201154, 655372, 233562, 2451, 71683, 178117, 95811, 26964, 977459, 5718, 3339224);
 
+drop table if exists viagens_atraidas_por_tipo;
 create table viagens_atraidas_por_tipo (
   zona int(11) unsigned not null primary key,
   coletivo_ int(11),
@@ -613,6 +627,7 @@ insert into viagens_atraidas_por_tipo values (29, 436949, 346916, 783865, 514646
 insert into viagens_atraidas_por_tipo values (30, 149177, 148053, 297230, 179713, 476944);
 insert into viagens_atraidas_por_tipo values (31, 1341883, 992916, 2334800, 1004424, 3339224);
 
+drop table if exists viagens_atraidas_por_motivo;
 create table viagens_atraidas_por_motivo (
   zona int(11) unsigned not null primary key,
   trabalho_na_industria int(11),
@@ -659,6 +674,7 @@ insert into viagens_atraidas_por_motivo values (29, 106109, 115364, 396175, 5065
 insert into viagens_atraidas_por_motivo values (30, 63194, 33560, 146047, 190337, 7096, 5458, 10346, 0, 20907, 476944);
 insert into viagens_atraidas_por_motivo values (31, 327065, 327024, 967855, 1194721, 119935, 82339, 52213, 5471, 262603, 3339225);
 
+drop table if exists pop_por_grau_de_instrucao;
 create table pop_por_grau_de_instrucao (
   zona int(11) unsigned not null primary key,
   nao_alfabetizado_primario_incompleto int(11),
@@ -701,6 +717,7 @@ insert into pop_por_grau_de_instrucao values (29, 175939, 157088, 150106, 224811
 insert into pop_por_grau_de_instrucao values (30, 48098, 51834, 69112, 65376, 21947, 256370);
 insert into pop_por_grau_de_instrucao values (31, 390089, 364922, 360727, 494952, 132127, 1742819);
 
+drop table if exists pop_por_genero;
 create table pop_por_genero (
   zona int(11) unsigned not null primary key,
   masculino int(11),
@@ -740,6 +757,7 @@ insert into pop_por_genero values (29, 370031, 393768, 763799);
 insert into pop_por_genero values (30, 122814, 133555, 256370);
 insert into pop_por_genero values (31, 870360, 872458, 1742819);
 
+drop table if exists pop_por_renda;
 create table pop_por_renda (
   zona int(11) unsigned not null primary key,
   ate_1244 int(11),
@@ -782,6 +800,7 @@ insert into pop_por_renda values (29, 138936, 275777, 255530, 85176, 8378, 76379
 insert into pop_por_renda values (30, 30353, 112541, 86390, 16344, 10740, 256370);
 insert into pop_por_renda values (31, 392186, 687899, 453007, 157294, 52431, 1742819);
 
+drop table if exists renda_familiar_per_capita;
 create table renda_familiar_per_capita (
   residência int(11) unsigned not null primary key,
   renda_total int(11),
@@ -822,6 +841,7 @@ insert into renda_familiar_per_capita values (29, 575527457, 2539, 753, 2044);
 insert into renda_familiar_per_capita values (30, 216238162, 2843, 843, 2400);
 insert into renda_familiar_per_capita values (31, 1388590540, 2667, 796, 2000);
 
+drop table if exists automoveis_por_residencia;
 create table automoveis_por_residencia (
   zona int(11) unsigned not null primary key,
   nenhum_automovel int(11),
@@ -864,6 +884,7 @@ insert into automoveis_por_residencia values (29, 100584, 93399, 26778, 3918, 19
 insert into automoveis_por_residencia values (30, 29391, 36389, 8397, 1399, 466, 76045);
 insert into automoveis_por_residencia values (31, 247328, 227382, 35902, 7978, 1994, 520586);
 
+drop table if exists trabalho_por_vinculo;
 create table trabalho_por_vinculo (
   zona int(11) unsigned not null primary key,
   assalariado_com_carteira int(11),
@@ -909,6 +930,7 @@ insert into trabalho_por_vinculo values (29, 209451, 39097, 29323, 92158, 5585, 
 insert into trabalho_por_vinculo values (30, 75183, 9806, 6537, 33155, 2334, 0, 2801, 0, 129819);
 insert into trabalho_por_vinculo values (31, 448812, 62917, 48236, 209725, 2097, 8389, 23069, 2097, 805345);
 
+drop table if exists pop_por_condicao_atividade;
 create table pop_por_condicao_atividade (
   zona int(11) unsigned not null primary key,
   ocupado int(11),
