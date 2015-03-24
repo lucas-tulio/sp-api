@@ -17,6 +17,8 @@ with open("additional-tables.sql", "w") as out:
     # Should loop through all files in directory
     with open("../unparsed-data/" + filename) as f:
 
+      print(filename)
+
       table_name = filename.split("-")[1].split(".")[0]
       table_fields = []
       out.write("\ncreate table " + table_name + " (\n")
@@ -36,7 +38,7 @@ with open("additional-tables.sql", "w") as out:
           out.write("  " + zona_field + " int(11) unsigned not null primary key")
 
           for field in fields[1:]:
-            field = strip_accents(field.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").replace("-", "").replace("/", "").replace("__","_").lower())
+            field = strip_accents(field.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").replace("-", "").replace("/", "").replace("__", "_").replace("*", "").replace(".", "").lower())
             table_fields.append(field)
             out.write(",\n  " + field + " int(11)")
 

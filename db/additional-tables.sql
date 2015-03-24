@@ -1,5 +1,129 @@
 use sp_api;
 
+create table geral (
+  zona int(11) unsigned not null primary key,
+  domicilios int(11),
+  familias int(11),
+  populacao int(11),
+  matriculas_escolares int(11),
+  empregos int(11),
+  automoveis_particulares int(11),
+  viagens_produzidas_por_dia int(11),
+  viagens_atraidas_por_dia int(11),
+  area_total_ha int(11)
+) engine=innodb charset=utf8;
+
+insert into geral values (1, 201429, 202064, 486534, 294055, 1061339, 103791, 2785207, 2790473, 3300);
+insert into geral values (2, 187680, 191397, 622367, 151011, 193562, 121408, 1107603, 1107811, 11743);
+insert into geral values (3, 218041, 219018, 720300, 147487, 223699, 139820, 1222482, 1216374, 5937);
+insert into geral values (4, 290287, 290287, 918589, 205755, 436149, 212461, 1927894, 1921032, 12794);
+insert into geral values (5, 71476, 72301, 207586, 70877, 192037, 69002, 679149, 688325, 2121);
+insert into geral values (6, 166085, 185537, 532810, 95878, 144839, 107485, 933543, 929556, 3303);
+insert into geral values (7, 118615, 121690, 359979, 125466, 231666, 113932, 988357, 988411, 3055);
+insert into geral values (8, 105210, 112042, 337849, 76399, 89994, 81377, 672047, 677955, 2609);
+insert into geral values (9, 146336, 151397, 472895, 111627, 166584, 116139, 893129, 891941, 4136);
+insert into geral values (10, 216548, 220503, 745207, 212208, 195561, 111409, 1295812, 1306612, 4782);
+insert into geral values (11, 120073, 125632, 402523, 99360, 120939, 75828, 824988, 816632, 4488);
+insert into geral values (12, 125859, 132525, 435017, 99726, 115011, 78556, 761904, 764847, 4551);
+insert into geral values (13, 140424, 144494, 488336, 112487, 98261, 74888, 743019, 734119, 3273);
+insert into geral values (14, 67413, 67413, 154856, 44960, 392722, 72430, 907911, 912956, 1456);
+insert into geral values (15, 99649, 99649, 244232, 68839, 502707, 132086, 1195571, 1191205, 2809);
+insert into geral values (16, 102416, 102416, 262776, 95020, 278456, 93809, 891129, 896930, 1779);
+insert into geral values (17, 154030, 157803, 470084, 107617, 194353, 112338, 1078881, 1077878, 3791);
+insert into geral values (18, 259396, 259396, 819014, 235872, 478805, 156216, 1990020, 1987538, 7350);
+insert into geral values (19, 216475, 221864, 746444, 213894, 214032, 124854, 1322266, 1318530, 49416);
+insert into geral values (20, 257214, 265362, 853741, 203238, 214271, 128806, 1407406, 1399732, 7677);
+insert into geral values (21, 160576, 161293, 511038, 123828, 223562, 100360, 988630, 995232, 4453);
+insert into geral values (22, 104365, 105488, 326852, 97186, 191691, 86787, 723744, 726790, 4134);
+insert into geral values (23, 104889, 104889, 276781, 162304, 412629, 116892, 1212740, 1213465, 3702);
+insert into geral values (24, 156186, 156186, 536237, 115943, 149460, 95184, 842746, 845749, 73327);
+insert into geral values (25, 409579, 410986, 1380287, 360075, 599683, 256162, 2546786, 2545912, 78024);
+insert into geral values (26, 392077, 403442, 1352224, 353838, 463854, 232614, 2584155, 2589138, 206697);
+insert into geral values (27, 445480, 451072, 1416914, 380107, 578005, 313141, 3414211, 3407564, 38849);
+insert into geral values (28, 362761, 370415, 1167233, 317233, 561075, 276038, 2654355, 2658065, 44116);
+insert into geral values (29, 222069, 226641, 763799, 168810, 256264, 161335, 1297532, 1298512, 110670);
+insert into geral values (30, 75578, 76045, 256370, 65489, 114927, 57697, 477859, 476944, 36747);
+insert into geral values (31, 518591, 520586, 1742819, 449486, 717219, 324461, 3344374, 3339224, 55476);
+
+create table matriculas_escolares_por_tipo (
+  zona int(11) unsigned not null primary key,
+  publica int(11),
+  particular int(11),
+  total_de_matriculas int(11)
+) engine=innodb charset=utf8;
+
+insert into matriculas_escolares_por_tipo values (1, 76971, 217083, 294055);
+insert into matriculas_escolares_por_tipo values (2, 116179, 34832, 151011);
+insert into matriculas_escolares_por_tipo values (3, 115488, 31998, 147487);
+insert into matriculas_escolares_por_tipo values (4, 122927, 82828, 205755);
+insert into matriculas_escolares_por_tipo values (5, 23918, 46959, 70877);
+insert into matriculas_escolares_por_tipo values (6, 81164, 14713, 95878);
+insert into matriculas_escolares_por_tipo values (7, 61586, 63879, 125466);
+insert into matriculas_escolares_por_tipo values (8, 58074, 18324, 76399);
+insert into matriculas_escolares_por_tipo values (9, 86647, 24979, 111627);
+insert into matriculas_escolares_por_tipo values (10, 171053, 41155, 212208);
+insert into matriculas_escolares_por_tipo values (11, 64769, 34590, 99360);
+insert into matriculas_escolares_por_tipo values (12, 78428, 21297, 99726);
+insert into matriculas_escolares_por_tipo values (13, 105187, 7300, 112487);
+insert into matriculas_escolares_por_tipo values (14, 16704, 28255, 44960);
+insert into matriculas_escolares_por_tipo values (15, 23531, 45307, 68839);
+insert into matriculas_escolares_por_tipo values (16, 26185, 68834, 95020);
+insert into matriculas_escolares_por_tipo values (17, 72318, 35299, 107617);
+insert into matriculas_escolares_por_tipo values (18, 125791, 110081, 235872);
+insert into matriculas_escolares_por_tipo values (19, 184906, 28987, 213894);
+insert into matriculas_escolares_por_tipo values (20, 172657, 30581, 203238);
+insert into matriculas_escolares_por_tipo values (21, 86496, 37331, 123828);
+insert into matriculas_escolares_por_tipo values (22, 73594, 23591, 97186);
+insert into matriculas_escolares_por_tipo values (23, 31479, 130824, 162304);
+insert into matriculas_escolares_por_tipo values (24, 107121, 8821, 115943);
+insert into matriculas_escolares_por_tipo values (25, 290673, 69402, 360075);
+insert into matriculas_escolares_por_tipo values (26, 292683, 61155, 353838);
+insert into matriculas_escolares_por_tipo values (27, 244044, 136062, 380107);
+insert into matriculas_escolares_por_tipo values (28, 237623, 79609, 317233);
+insert into matriculas_escolares_por_tipo values (29, 141916, 26894, 168810);
+insert into matriculas_escolares_por_tipo values (30, 56266, 9223, 65489);
+insert into matriculas_escolares_por_tipo values (31, 365888, 83597, 449486);
+
+create table empregos_por_setor (
+  zona int(11) unsigned not null primary key,
+  setor_secundario int(11),
+  setor_terciario int(11),
+  outros int(11),
+  total_de_empregos int(11)
+) engine=innodb charset=utf8;
+
+insert into empregos_por_setor values (1, 98504, 962835, 0, 1061339);
+insert into empregos_por_setor values (2, 34782, 158779, 0, 193562);
+insert into empregos_por_setor values (3, 43959, 179184, 555, 223699);
+insert into empregos_por_setor values (4, 69174, 366975, 0, 436149);
+insert into empregos_por_setor values (5, 45597, 146439, 0, 192037);
+insert into empregos_por_setor values (6, 29306, 115533, 0, 144839);
+insert into empregos_por_setor values (7, 38144, 193522, 0, 231666);
+insert into empregos_por_setor values (8, 12581, 77412, 0, 89994);
+insert into empregos_por_setor values (9, 35067, 131517, 0, 166584);
+insert into empregos_por_setor values (10, 26471, 169089, 0, 195561);
+insert into empregos_por_setor values (11, 29106, 91833, 0, 120939);
+insert into empregos_por_setor values (12, 25591, 89420, 0, 115011);
+insert into empregos_por_setor values (13, 12869, 85391, 0, 98261);
+insert into empregos_por_setor values (14, 34253, 358015, 454, 392722);
+insert into empregos_por_setor values (15, 56038, 446669, 0, 502707);
+insert into empregos_por_setor values (16, 23883, 254573, 0, 278456);
+insert into empregos_por_setor values (17, 43830, 150522, 0, 194353);
+insert into empregos_por_setor values (18, 75406, 403399, 0, 478805);
+insert into empregos_por_setor values (19, 26107, 187924, 0, 214032);
+insert into empregos_por_setor values (20, 47012, 167259, 0, 214271);
+insert into empregos_por_setor values (21, 32856, 190706, 0, 223562);
+insert into empregos_por_setor values (22, 37526, 154165, 0, 191691);
+insert into empregos_por_setor values (23, 60847, 351781, 0, 412629);
+insert into empregos_por_setor values (24, 42792, 102612, 4055, 149460);
+insert into empregos_por_setor values (25, 191327, 408356, 0, 599683);
+insert into empregos_por_setor values (26, 124959, 332884, 6009, 463854);
+insert into empregos_por_setor values (27, 140631, 437374, 0, 578005);
+insert into empregos_por_setor values (28, 203918, 357156, 0, 561075);
+insert into empregos_por_setor values (29, 62873, 192692, 698, 256264);
+insert into empregos_por_setor values (30, 35374, 79553, 0, 114927);
+insert into empregos_por_setor values (31, 157481, 559738, 0, 717219);
+
 create table empregos_por_classe (
   zona int(11) unsigned not null primary key,
   agricola int(11),
@@ -51,92 +175,90 @@ insert into empregos_por_classe values (29, 698, 22221, 40652, 41078, 7679, 1005
 insert into empregos_por_classe values (30, 0, 9752, 25622, 18995, 3498, 2334, 466, 2801, 3563, 3951, 10619, 9154, 2334, 21831, 114927);
 insert into empregos_por_classe values (31, 0, 51004, 106476, 150594, 37057, 23675, 18393, 22194, 12923, 27850, 50326, 40564, 18272, 157886, 717219);
 
-create table geral (
+create table empregos_por_vinculo (
   zona int(11) unsigned not null primary key,
-  domicilios int(11),
-  familias int(11),
-  populacao int(11),
-  matriculas_escolares int(11),
-  empregos int(11),
-  automoveis_particulares int(11),
-  viagens_produzidas_por_dia int(11),
-  viagens_atraidas_por_dia int(11),
-  area_total_ha int(11)
-) engine=innodb charset=utf8;
-
-insert into geral values (1, 201429, 202064, 486534, 294055, 1061339, 103791, 2785207, 2790473, 3300);
-insert into geral values (2, 187680, 191397, 622367, 151011, 193562, 121408, 1107603, 1107811, 11743);
-insert into geral values (3, 218041, 219018, 720300, 147487, 223699, 139820, 1222482, 1216374, 5937);
-insert into geral values (4, 290287, 290287, 918589, 205755, 436149, 212461, 1927894, 1921032, 12794);
-insert into geral values (5, 71476, 72301, 207586, 70877, 192037, 69002, 679149, 688325, 2121);
-insert into geral values (6, 166085, 185537, 532810, 95878, 144839, 107485, 933543, 929556, 3303);
-insert into geral values (7, 118615, 121690, 359979, 125466, 231666, 113932, 988357, 988411, 3055);
-insert into geral values (8, 105210, 112042, 337849, 76399, 89994, 81377, 672047, 677955, 2609);
-insert into geral values (9, 146336, 151397, 472895, 111627, 166584, 116139, 893129, 891941, 4136);
-insert into geral values (10, 216548, 220503, 745207, 212208, 195561, 111409, 1295812, 1306612, 4782);
-insert into geral values (11, 120073, 125632, 402523, 99360, 120939, 75828, 824988, 816632, 4488);
-insert into geral values (12, 125859, 132525, 435017, 99726, 115011, 78556, 761904, 764847, 4551);
-insert into geral values (13, 140424, 144494, 488336, 112487, 98261, 74888, 743019, 734119, 3273);
-insert into geral values (14, 67413, 67413, 154856, 44960, 392722, 72430, 907911, 912956, 1456);
-insert into geral values (15, 99649, 99649, 244232, 68839, 502707, 132086, 1195571, 1191205, 2809);
-insert into geral values (16, 102416, 102416, 262776, 95020, 278456, 93809, 891129, 896930, 1779);
-insert into geral values (17, 154030, 157803, 470084, 107617, 194353, 112338, 1078881, 1077878, 3791);
-insert into geral values (18, 259396, 259396, 819014, 235872, 478805, 156216, 1990020, 1987538, 7350);
-insert into geral values (19, 216475, 221864, 746444, 213894, 214032, 124854, 1322266, 1318530, 49416);
-insert into geral values (20, 257214, 265362, 853741, 203238, 214271, 128806, 1407406, 1399732, 7677);
-insert into geral values (21, 160576, 161293, 511038, 123828, 223562, 100360, 988630, 995232, 4453);
-insert into geral values (22, 104365, 105488, 326852, 97186, 191691, 86787, 723744, 726790, 4134);
-insert into geral values (23, 104889, 104889, 276781, 162304, 412629, 116892, 1212740, 1213465, 3702);
-insert into geral values (24, 156186, 156186, 536237, 115943, 149460, 95184, 842746, 845749, 73327);
-insert into geral values (25, 409579, 410986, 1380287, 360075, 599683, 256162, 2546786, 2545912, 78024);
-insert into geral values (26, 392077, 403442, 1352224, 353838, 463854, 232614, 2584155, 2589138, 206697);
-insert into geral values (27, 445480, 451072, 1416914, 380107, 578005, 313141, 3414211, 3407564, 38849);
-insert into geral values (28, 362761, 370415, 1167233, 317233, 561075, 276038, 2654355, 2658065, 44116);
-insert into geral values (29, 222069, 226641, 763799, 168810, 256264, 161335, 1297532, 1298512, 110670);
-insert into geral values (30, 75578, 76045, 256370, 65489, 114927, 57697, 477859, 476944, 36747);
-insert into geral values (31, 518591, 520586, 1742819, 449486, 717219, 324461, 3344374, 3339224, 55476);
-
-create table pop_por_grau_de_instrucao (
-  zona int(11) unsigned not null primary key,
-  nao_alfabetizado_primario_incompleto int(11),
-  primario_completo_ginasio_incompleto int(11),
-  ginasio_completo_colegial_incompleto int(11),
-  colegial_completo_superior_incompleto int(11),
-  superior_completo int(11),
+  assalariado_com_carteira int(11),
+  assalariado_sem_carteira int(11),
+  funcionario_publico int(11),
+  autonomo int(11),
+  empregador int(11),
+  profissional_liberal int(11),
+  dono_de_negocio_familiar int(11),
+  trabalhador_familiar int(11),
   total int(11)
 ) engine=innodb charset=utf8;
 
-insert into pop_por_grau_de_instrucao values (1, 47483, 69504, 77763, 158966, 132816, 486534);
-insert into pop_por_grau_de_instrucao values (2, 122432, 123360, 89969, 217040, 69564, 622367);
-insert into pop_por_grau_de_instrucao values (3, 152063, 177073, 123051, 201083, 67027, 720300);
-insert into pop_por_grau_de_instrucao values (4, 157438, 171643, 164541, 243852, 181113, 918589);
-insert into pop_por_grau_de_instrucao values (5, 25329, 35228, 23873, 68127, 55026, 207586);
-insert into pop_por_grau_de_instrucao values (6, 109036, 129915, 92797, 156208, 44851, 532810);
-insert into pop_por_grau_de_instrucao values (7, 42087, 73876, 54623, 115515, 73876, 359979);
-insert into pop_por_grau_de_instrucao values (8, 60516, 63564, 55292, 124516, 33959, 337849);
-insert into pop_por_grau_de_instrucao values (9, 85030, 91850, 85030, 155055, 55929, 472895);
-insert into pop_por_grau_de_instrucao values (10, 177013, 171550, 140955, 208701, 46985, 745207);
-insert into pop_por_grau_de_instrucao values (11, 90498, 78283, 72731, 135469, 25539, 402523);
-insert into pop_por_grau_de_instrucao values (12, 96442, 121476, 75512, 125169, 16415, 435017);
-insert into pop_por_grau_de_instrucao values (13, 115339, 103198, 109943, 142319, 17536, 488336);
-insert into pop_por_grau_de_instrucao values (14, 11330, 13552, 8442, 31104, 90425, 154856);
-insert into pop_por_grau_de_instrucao values (15, 21731, 19136, 19136, 53192, 131035, 244232);
-insert into pop_por_grau_de_instrucao values (16, 25114, 30230, 24649, 65112, 117667, 262776);
-insert into pop_por_grau_de_instrucao values (17, 100500, 82345, 80400, 141997, 64839, 470084);
-insert into pop_por_grau_de_instrucao values (18, 136502, 196480, 142707, 226470, 116854, 819014);
-insert into pop_por_grau_de_instrucao values (19, 190105, 163080, 130464, 219926, 42867, 746444);
-insert into pop_por_grau_de_instrucao values (20, 218815, 197293, 155443, 236751, 45437, 853741);
-insert into pop_por_grau_de_instrucao values (21, 94239, 115692, 91940, 136378, 72786, 511038);
-insert into pop_por_grau_de_instrucao values (22, 51778, 54132, 59427, 109440, 52072, 326852);
-insert into pop_por_grau_de_instrucao values (23, 22171, 33256, 35759, 76168, 109425, 276781);
-insert into pop_por_grau_de_instrucao values (24, 118463, 127915, 110272, 158791, 20794, 536237);
-insert into pop_por_grau_de_instrucao values (25, 294748, 314878, 284684, 409772, 76203, 1380287);
-insert into pop_por_grau_de_instrucao values (26, 310110, 355785, 212749, 391844, 81734, 1352224);
-insert into pop_por_grau_de_instrucao values (27, 263895, 269985, 229385, 464861, 188786, 1416914);
-insert into pop_por_grau_de_instrucao values (28, 249220, 206631, 227137, 353324, 130919, 1167233);
-insert into pop_por_grau_de_instrucao values (29, 175939, 157088, 150106, 224811, 55853, 763799);
-insert into pop_por_grau_de_instrucao values (30, 48098, 51834, 69112, 65376, 21947, 256370);
-insert into pop_por_grau_de_instrucao values (31, 390089, 364922, 360727, 494952, 132127, 1742819);
+insert into empregos_por_vinculo values (1, 721728, 82110, 64474, 125928, 23067, 22255, 15498, 6276, 1061339);
+insert into empregos_por_vinculo values (2, 100343, 20421, 14031, 44786, 927, 2849, 6492, 3710, 193562);
+insert into empregos_por_vinculo values (3, 99893, 14976, 10745, 74743, 5617, 3001, 12720, 2000, 223699);
+insert into empregos_por_vinculo values (4, 245241, 37955, 22250, 110458, 6222, 2367, 10653, 1000, 436149);
+insert into empregos_por_vinculo values (5, 130737, 14376, 4095, 31973, 5356, 3460, 1746, 291, 192037);
+insert into empregos_por_vinculo values (6, 61941, 18680, 6344, 47672, 2248, 2128, 5823, 0, 144839);
+insert into empregos_por_vinculo values (7, 134476, 21764, 5635, 52033, 4326, 2479, 9920, 1030, 231666);
+insert into empregos_por_vinculo values (8, 36595, 10782, 5833, 32342, 900, 902, 2636, 0, 89994);
+insert into empregos_por_vinculo values (9, 72078, 13366, 12921, 52024, 2366, 3731, 8732, 1364, 166584);
+insert into empregos_por_vinculo values (10, 78260, 23049, 11772, 65989, 2670, 1092, 12290, 435, 195561);
+insert into empregos_por_vinculo values (11, 63545, 7469, 4733, 38970, 2113, 435, 3223, 447, 120939);
+insert into empregos_por_vinculo values (12, 42316, 12685, 7353, 40497, 0, 447, 10890, 820, 115011);
+insert into empregos_por_vinculo values (13, 33888, 12961, 6540, 39951, 0, 0, 4244, 674, 98261);
+insert into empregos_por_vinculo values (14, 260325, 35649, 15062, 57233, 7289, 11203, 5959, 0, 392722);
+insert into empregos_por_vinculo values (15, 347212, 36934, 9410, 69985, 8387, 22995, 7456, 324, 502707);
+insert into empregos_por_vinculo values (16, 190067, 19216, 4659, 46642, 7517, 4181, 6170, 0, 278456);
+insert into empregos_por_vinculo values (17, 104223, 14571, 8896, 48895, 4174, 3496, 8800, 1296, 194353);
+insert into empregos_por_vinculo values (18, 282186, 38140, 16931, 117383, 6945, 7433, 9785, 0, 478805);
+insert into empregos_por_vinculo values (19, 102145, 15660, 7803, 80483, 465, 2165, 4375, 931, 214032);
+insert into empregos_por_vinculo values (20, 66105, 19895, 21251, 82405, 698, 0, 20327, 3587, 214271);
+insert into empregos_por_vinculo values (21, 118172, 22746, 9958, 64689, 698, 3355, 3941, 0, 223562);
+insert into empregos_por_vinculo values (22, 108042, 21424, 14054, 41633, 588, 2711, 2941, 294, 191691);
+insert into empregos_por_vinculo values (23, 284245, 30083, 9655, 69111, 3196, 8853, 6928, 555, 412629);
+insert into empregos_por_vinculo values (24, 73286, 16797, 18047, 35027, 0, 1260, 5041, 0, 149460);
+insert into empregos_por_vinculo values (25, 339916, 50405, 31617, 153581, 8917, 2184, 11622, 1437, 599683);
+insert into empregos_por_vinculo values (26, 224417, 45585, 36869, 144994, 1559, 3216, 7211, 0, 463854);
+insert into empregos_por_vinculo values (27, 295368, 44833, 59880, 152018, 4384, 9340, 12179, 0, 578005);
+insert into empregos_por_vinculo values (28, 361474, 47076, 15125, 110332, 4732, 6091, 16240, 0, 561075);
+insert into empregos_por_vinculo values (29, 116711, 17221, 28812, 81881, 3957, 1396, 5585, 698, 256264);
+insert into empregos_por_vinculo values (30, 65878, 6537, 7990, 30239, 1400, 222, 2659, 0, 114927);
+insert into empregos_por_vinculo values (31, 396317, 33774, 51319, 198072, 4821, 11647, 18875, 2391, 717219);
+
+create table empregos_por_tipo_localidade (
+  zona int(11) unsigned not null primary key,
+  empregos_em_endereco_fixo int(11),
+  empregos_na_propria_residencia int(11),
+  empregos_sem_endereco_fixo int(11),
+  total int(11)
+) engine=innodb charset=utf8;
+
+insert into empregos_por_tipo_localidade values (1, 33032, 1013167, 15139, 1061339);
+insert into empregos_por_tipo_localidade values (2, 23188, 156461, 13912, 193562);
+insert into empregos_por_tipo_localidade values (3, 24010, 164674, 35014, 223699);
+insert into empregos_por_tipo_localidade values (4, 39063, 367492, 29593, 436149);
+insert into empregos_por_tipo_localidade values (5, 5822, 177771, 8443, 192037);
+insert into empregos_por_tipo_localidade values (6, 10826, 113907, 20106, 144839);
+insert into empregos_por_tipo_localidade values (7, 20595, 206593, 4477, 231666);
+insert into empregos_por_tipo_localidade values (8, 10448, 72144, 7401, 89994);
+insert into empregos_por_tipo_localidade values (9, 18643, 131572, 16369, 166584);
+insert into empregos_por_tipo_localidade values (10, 20760, 145298, 29502, 195561);
+insert into empregos_por_tipo_localidade values (11, 9438, 98176, 13324, 120939);
+insert into empregos_por_tipo_localidade values (12, 11491, 81769, 21750, 115011);
+insert into empregos_por_tipo_localidade values (13, 23607, 63862, 10791, 98261);
+insert into empregos_por_tipo_localidade values (14, 15774, 373615, 3332, 392722);
+insert into empregos_por_tipo_localidade values (15, 24974, 468651, 9081, 502707);
+insert into empregos_por_tipo_localidade values (16, 19068, 253806, 5581, 278456);
+insert into empregos_por_tipo_localidade values (17, 15561, 170362, 8429, 194353);
+insert into empregos_por_tipo_localidade values (18, 29989, 421929, 26886, 478805);
+insert into empregos_por_tipo_localidade values (19, 20501, 176756, 16774, 214032);
+insert into empregos_por_tipo_localidade values (20, 34675, 138941, 40654, 214271);
+insert into empregos_por_tipo_localidade values (21, 16855, 186020, 20686, 223562);
+insert into empregos_por_tipo_localidade values (22, 11473, 163154, 17063, 191691);
+insert into empregos_por_tipo_localidade values (23, 19310, 382233, 11085, 412629);
+insert into empregos_por_tipo_localidade values (24, 11342, 117323, 20794, 149460);
+insert into empregos_por_tipo_localidade values (25, 34507, 499037, 66138, 599683);
+insert into empregos_por_tipo_localidade values (26, 32453, 359282, 72118, 463854);
+insert into empregos_por_tipo_localidade values (27, 38569, 490717, 48719, 578005);
+insert into empregos_por_tipo_localidade values (28, 25237, 491672, 44165, 561075);
+insert into empregos_por_tipo_localidade values (29, 23039, 196221, 37003, 256264);
+insert into empregos_por_tipo_localidade values (30, 10740, 95781, 8405, 114927);
+insert into empregos_por_tipo_localidade values (31, 60820, 606065, 50334, 717219);
 
 create table emprego_interno_externo (
   zona int(11) unsigned not null primary key,
@@ -226,85 +348,46 @@ insert into viagens_por_modo values (29, 295322, 14454, 75819, 230920, 76666, 51
 insert into viagens_por_modo values (30, 123943, 4710, 15116, 96249, 38192, 0, 7204, 1107, 10720, 2183, 177530, 904, 477860);
 insert into viagens_por_modo values (31, 817872, 67573, 201700, 661091, 238105, 0, 66739, 185079, 95811, 26965, 977197, 6242, 3344374);
 
-create table empregos_por_setor (
+create table viagens_por_tipo (
   zona int(11) unsigned not null primary key,
-  setor_secundario int(11),
-  setor_terciario int(11),
-  outros int(11),
-  total_de_empregos int(11)
-) engine=innodb charset=utf8;
-
-insert into empregos_por_setor values (1, 98504, 962835, 0, 1061339);
-insert into empregos_por_setor values (2, 34782, 158779, 0, 193562);
-insert into empregos_por_setor values (3, 43959, 179184, 555, 223699);
-insert into empregos_por_setor values (4, 69174, 366975, 0, 436149);
-insert into empregos_por_setor values (5, 45597, 146439, 0, 192037);
-insert into empregos_por_setor values (6, 29306, 115533, 0, 144839);
-insert into empregos_por_setor values (7, 38144, 193522, 0, 231666);
-insert into empregos_por_setor values (8, 12581, 77412, 0, 89994);
-insert into empregos_por_setor values (9, 35067, 131517, 0, 166584);
-insert into empregos_por_setor values (10, 26471, 169089, 0, 195561);
-insert into empregos_por_setor values (11, 29106, 91833, 0, 120939);
-insert into empregos_por_setor values (12, 25591, 89420, 0, 115011);
-insert into empregos_por_setor values (13, 12869, 85391, 0, 98261);
-insert into empregos_por_setor values (14, 34253, 358015, 454, 392722);
-insert into empregos_por_setor values (15, 56038, 446669, 0, 502707);
-insert into empregos_por_setor values (16, 23883, 254573, 0, 278456);
-insert into empregos_por_setor values (17, 43830, 150522, 0, 194353);
-insert into empregos_por_setor values (18, 75406, 403399, 0, 478805);
-insert into empregos_por_setor values (19, 26107, 187924, 0, 214032);
-insert into empregos_por_setor values (20, 47012, 167259, 0, 214271);
-insert into empregos_por_setor values (21, 32856, 190706, 0, 223562);
-insert into empregos_por_setor values (22, 37526, 154165, 0, 191691);
-insert into empregos_por_setor values (23, 60847, 351781, 0, 412629);
-insert into empregos_por_setor values (24, 42792, 102612, 4055, 149460);
-insert into empregos_por_setor values (25, 191327, 408356, 0, 599683);
-insert into empregos_por_setor values (26, 124959, 332884, 6009, 463854);
-insert into empregos_por_setor values (27, 140631, 437374, 0, 578005);
-insert into empregos_por_setor values (28, 203918, 357156, 0, 561075);
-insert into empregos_por_setor values (29, 62873, 192692, 698, 256264);
-insert into empregos_por_setor values (30, 35374, 79553, 0, 114927);
-insert into empregos_por_setor values (31, 157481, 559738, 0, 717219);
-
-create table tempo_medio_viagens (
-  zona int(11) unsigned not null primary key,
-  coletivo_ int(11),
+  coletivo int(11),
   individual int(11),
-  a_pe int(11),
-  bicicleta int(11)
+  modo_motorizado int(11),
+  modo_nao_motorizado int(11),
+  total int(11)
 ) engine=innodb charset=utf8;
 
-insert into tempo_medio_viagens values (1, 78, 41, 13, 24);
-insert into tempo_medio_viagens values (2, 64, 35, 14, 15);
-insert into tempo_medio_viagens values (3, 60, 29, 13, 18);
-insert into tempo_medio_viagens values (4, 64, 30, 14, 22);
-insert into tempo_medio_viagens values (5, 71, 27, 12, 37);
-insert into tempo_medio_viagens values (6, 60, 28, 14, 34);
-insert into tempo_medio_viagens values (7, 67, 29, 14, 17);
-insert into tempo_medio_viagens values (8, 59, 26, 13, 20);
-insert into tempo_medio_viagens values (9, 57, 29, 15, 50);
-insert into tempo_medio_viagens values (10, 60, 28, 13, 21);
-insert into tempo_medio_viagens values (11, 65, 25, 13, 41);
-insert into tempo_medio_viagens values (12, 65, 31, 14, 28);
-insert into tempo_medio_viagens values (13, 77, 33, 14, 0);
-insert into tempo_medio_viagens values (14, 86, 38, 12, 30);
-insert into tempo_medio_viagens values (15, 87, 39, 11, 34);
-insert into tempo_medio_viagens values (16, 76, 34, 12, 42);
-insert into tempo_medio_viagens values (17, 64, 27, 17, 20);
-insert into tempo_medio_viagens values (18, 64, 31, 15, 15);
-insert into tempo_medio_viagens values (19, 70, 34, 14, 11);
-insert into tempo_medio_viagens values (20, 69, 32, 12, 35);
-insert into tempo_medio_viagens values (21, 63, 37, 16, 34);
-insert into tempo_medio_viagens values (22, 67, 32, 15, 29);
-insert into tempo_medio_viagens values (23, 73, 36, 14, 32);
-insert into tempo_medio_viagens values (24, 67, 23, 17, 0);
-insert into tempo_medio_viagens values (25, 64, 31, 15, 19);
-insert into tempo_medio_viagens values (26, 65, 25, 14, 33);
-insert into tempo_medio_viagens values (27, 57, 25, 15, 31);
-insert into tempo_medio_viagens values (28, 58, 27, 16, 0);
-insert into tempo_medio_viagens values (29, 65, 32, 14, 20);
-insert into tempo_medio_viagens values (30, 67, 34, 17, 8);
-insert into tempo_medio_viagens values (31, 62, 34, 16, 46);
+insert into viagens_por_tipo values (1, 1259154, 669530, 1928684, 856524, 2785208);
+insert into viagens_por_tipo values (2, 411845, 327653, 739498, 368106, 1107604);
+insert into viagens_por_tipo values (3, 446473, 385758, 832231, 390252, 1222483);
+insert into viagens_por_tipo values (4, 797433, 673741, 1471174, 456721, 1927895);
+insert into viagens_por_tipo values (5, 245940, 305030, 550970, 128180, 679150);
+insert into viagens_por_tipo values (6, 277267, 287376, 564643, 368899, 933542);
+insert into viagens_por_tipo values (7, 345689, 389680, 735369, 252988, 988357);
+insert into viagens_por_tipo values (8, 217869, 242571, 460440, 211607, 672047);
+insert into viagens_por_tipo values (9, 337886, 314061, 651947, 241182, 893129);
+insert into viagens_por_tipo values (10, 498434, 315319, 813753, 482060, 1295813);
+insert into viagens_por_tipo values (11, 317391, 207266, 524657, 300332, 824989);
+insert into viagens_por_tipo values (12, 256251, 170795, 427046, 334857, 761903);
+insert into viagens_por_tipo values (13, 284063, 118128, 402191, 340828, 743019);
+insert into viagens_por_tipo values (14, 412706, 302499, 715205, 192705, 907910);
+insert into viagens_por_tipo values (15, 408936, 548293, 957229, 238342, 1195571);
+insert into viagens_por_tipo values (16, 376451, 283806, 660257, 230874, 891131);
+insert into viagens_por_tipo values (17, 344277, 353130, 697407, 381476, 1078883);
+insert into viagens_por_tipo values (18, 881927, 613761, 1495688, 494333, 1990021);
+insert into viagens_por_tipo values (19, 526024, 220796, 746820, 575447, 1322267);
+insert into viagens_por_tipo values (20, 510376, 305156, 815532, 591874, 1407406);
+insert into viagens_por_tipo values (21, 373935, 292995, 666930, 321701, 988631);
+insert into viagens_por_tipo values (22, 293776, 249952, 543728, 180019, 723747);
+insert into viagens_por_tipo values (23, 525505, 486019, 1011524, 201218, 1212742);
+insert into viagens_por_tipo values (24, 308091, 231945, 540036, 302709, 842745);
+insert into viagens_por_tipo values (25, 865470, 736308, 1601778, 945007, 2546785);
+insert into viagens_por_tipo values (26, 737247, 707028, 1444275, 1139881, 2584156);
+insert into viagens_por_tipo values (27, 1084578, 1361502, 2446080, 968131, 3414211);
+insert into viagens_por_tipo values (28, 869872, 1002467, 1872339, 782017, 2654356);
+insert into viagens_por_tipo values (29, 438065, 345637, 783702, 513831, 1297533);
+insert into viagens_por_tipo values (30, 152080, 146065, 298145, 179713, 477858);
+insert into viagens_por_tipo values (31, 1338963, 1001249, 2340212, 1004162, 3344374);
 
 create table viagens_produzidas_por_motivo (
   zona int(11) unsigned not null primary key,
@@ -352,92 +435,45 @@ insert into viagens_produzidas_por_motivo values (29, 109552, 112061, 414447, 49
 insert into viagens_produzidas_por_motivo values (30, 61370, 32059, 144228, 196199, 7096, 4673, 6071, 0, 26164, 477860);
 insert into viagens_produzidas_por_motivo values (31, 325518, 326265, 970490, 1199530, 119472, 84446, 56246, 5471, 256936, 3344374);
 
-create table viagens_atraidas_por_motivo (
+create table tempo_medio_viagens (
   zona int(11) unsigned not null primary key,
-  trabalho_na_industria int(11),
-  trabalho_no_comercio int(11),
-  trabalho_em_servicos int(11),
-  educacao int(11),
-  compras int(11),
-  saude int(11),
-  lazer int(11),
-  procurar_emprego int(11),
-  assuntos_pessoais int(11),
-  total int(11)
-) engine=innodb charset=utf8;
-
-insert into viagens_atraidas_por_motivo values (1, 137982, 340066, 1123121, 452249, 130321, 89492, 94718, 10829, 411697, 2790473);
-insert into viagens_atraidas_por_motivo values (2, 61412, 59792, 345171, 452034, 30743, 21249, 32708, 747, 103955, 1107812);
-insert into viagens_atraidas_por_motivo values (3, 91285, 111301, 335904, 469488, 37836, 39723, 34199, 3508, 93130, 1216374);
-insert into viagens_atraidas_por_motivo values (4, 84153, 118569, 659707, 552389, 111288, 83233, 109362, 5915, 196415, 1921032);
-insert into viagens_atraidas_por_motivo values (5, 69007, 72988, 220705, 163257, 27456, 42354, 26785, 0, 65774, 688325);
-insert into viagens_atraidas_por_motivo values (6, 85092, 85400, 219593, 300169, 37906, 37411, 52262, 1808, 109917, 929557);
-insert into viagens_atraidas_por_motivo values (7, 58804, 92178, 278092, 314006, 39085, 44884, 45389, 5375, 110598, 988411);
-insert into viagens_atraidas_por_motivo values (8, 31464, 56603, 161573, 237550, 53652, 31824, 25188, 1750, 78351, 677955);
-insert into viagens_atraidas_por_motivo values (9, 43336, 56700, 263886, 321858, 34929, 43168, 44505, 2541, 81018, 891941);
-insert into viagens_atraidas_por_motivo values (10, 53555, 129838, 263951, 602528, 26750, 44905, 39920, 2200, 142964, 1306612);
-insert into viagens_atraidas_por_motivo values (11, 60604, 48294, 190040, 323027, 40884, 30640, 34941, 1366, 86836, 816633);
-insert into viagens_atraidas_por_motivo values (12, 52826, 75290, 168573, 304664, 33922, 22333, 30749, 1692, 74798, 764848);
-insert into viagens_atraidas_por_motivo values (13, 46699, 44597, 194595, 317295, 20283, 36035, 25060, 3154, 46402, 734119);
-insert into viagens_atraidas_por_motivo values (14, 48089, 63022, 461902, 99729, 25500, 56232, 46186, 1842, 110455, 912956);
-insert into viagens_atraidas_por_motivo values (15, 83925, 80923, 574927, 167458, 35637, 56453, 56838, 5783, 129263, 1191206);
-insert into viagens_atraidas_por_motivo values (16, 33297, 51156, 399296, 189349, 42732, 40182, 40959, 1526, 98433, 896930);
-insert into viagens_atraidas_por_motivo values (17, 90626, 72253, 287837, 364262, 48080, 38587, 46484, 2191, 127559, 1077878);
-insert into viagens_atraidas_por_motivo values (18, 110609, 146404, 702069, 612497, 83174, 54717, 71456, 9180, 197434, 1987538);
-insert into viagens_atraidas_por_motivo values (19, 58194, 103370, 381495, 536985, 45276, 45176, 22765, 2178, 123092, 1318531);
-insert into viagens_atraidas_por_motivo values (20, 96516, 79928, 379829, 607219, 56923, 36232, 42345, 3234, 97508, 1399733);
-insert into viagens_atraidas_por_motivo values (21, 47780, 89826, 333232, 353445, 31924, 17428, 34818, 896, 85883, 995233);
-insert into viagens_atraidas_por_motivo values (22, 50164, 58314, 271364, 244648, 22370, 21896, 20323, 1944, 35768, 726791);
-insert into viagens_atraidas_por_motivo values (23, 71747, 108427, 446760, 287182, 72373, 33923, 60671, 1623, 130760, 1213466);
-insert into viagens_atraidas_por_motivo values (24, 93926, 63710, 230229, 308254, 23754, 40231, 24961, 3693, 56991, 845749);
-insert into viagens_atraidas_por_motivo values (25, 341964, 117854, 805780, 915203, 77891, 53933, 75101, 2880, 155305, 2545912);
-insert into viagens_atraidas_por_motivo values (26, 268804, 177086, 646257, 920554, 125391, 97131, 155881, 2810, 195224, 2589138);
-insert into viagens_atraidas_por_motivo values (27, 287366, 239333, 816765, 922261, 331064, 201985, 201211, 0, 407580, 3407565);
-insert into viagens_atraidas_por_motivo values (28, 380384, 225146, 601284, 758690, 135865, 125519, 98669, 758, 331750, 2658066);
-insert into viagens_atraidas_por_motivo values (29, 106109, 115364, 396175, 506520, 29391, 24812, 27757, 344, 92039, 1298512);
-insert into viagens_atraidas_por_motivo values (30, 63194, 33560, 146047, 190337, 7096, 5458, 10346, 0, 20907, 476944);
-insert into viagens_atraidas_por_motivo values (31, 327065, 327024, 967855, 1194721, 119935, 82339, 52213, 5471, 262603, 3339225);
-
-create table viagens_por_tipo (
-  zona int(11) unsigned not null primary key,
-  coletivo int(11),
+  coletivo_ int(11),
   individual int(11),
-  modo_motorizado int(11),
-  modo_nao_motorizado int(11),
-  total int(11)
+  a_pe int(11),
+  bicicleta int(11)
 ) engine=innodb charset=utf8;
 
-insert into viagens_por_tipo values (1, 1259154, 669530, 1928684, 856524, 2785208);
-insert into viagens_por_tipo values (2, 411845, 327653, 739498, 368106, 1107604);
-insert into viagens_por_tipo values (3, 446473, 385758, 832231, 390252, 1222483);
-insert into viagens_por_tipo values (4, 797433, 673741, 1471174, 456721, 1927895);
-insert into viagens_por_tipo values (5, 245940, 305030, 550970, 128180, 679150);
-insert into viagens_por_tipo values (6, 277267, 287376, 564643, 368899, 933542);
-insert into viagens_por_tipo values (7, 345689, 389680, 735369, 252988, 988357);
-insert into viagens_por_tipo values (8, 217869, 242571, 460440, 211607, 672047);
-insert into viagens_por_tipo values (9, 337886, 314061, 651947, 241182, 893129);
-insert into viagens_por_tipo values (10, 498434, 315319, 813753, 482060, 1295813);
-insert into viagens_por_tipo values (11, 317391, 207266, 524657, 300332, 824989);
-insert into viagens_por_tipo values (12, 256251, 170795, 427046, 334857, 761903);
-insert into viagens_por_tipo values (13, 284063, 118128, 402191, 340828, 743019);
-insert into viagens_por_tipo values (14, 412706, 302499, 715205, 192705, 907910);
-insert into viagens_por_tipo values (15, 408936, 548293, 957229, 238342, 1195571);
-insert into viagens_por_tipo values (16, 376451, 283806, 660257, 230874, 891131);
-insert into viagens_por_tipo values (17, 344277, 353130, 697407, 381476, 1078883);
-insert into viagens_por_tipo values (18, 881927, 613761, 1495688, 494333, 1990021);
-insert into viagens_por_tipo values (19, 526024, 220796, 746820, 575447, 1322267);
-insert into viagens_por_tipo values (20, 510376, 305156, 815532, 591874, 1407406);
-insert into viagens_por_tipo values (21, 373935, 292995, 666930, 321701, 988631);
-insert into viagens_por_tipo values (22, 293776, 249952, 543728, 180019, 723747);
-insert into viagens_por_tipo values (23, 525505, 486019, 1011524, 201218, 1212742);
-insert into viagens_por_tipo values (24, 308091, 231945, 540036, 302709, 842745);
-insert into viagens_por_tipo values (25, 865470, 736308, 1601778, 945007, 2546785);
-insert into viagens_por_tipo values (26, 737247, 707028, 1444275, 1139881, 2584156);
-insert into viagens_por_tipo values (27, 1084578, 1361502, 2446080, 968131, 3414211);
-insert into viagens_por_tipo values (28, 869872, 1002467, 1872339, 782017, 2654356);
-insert into viagens_por_tipo values (29, 438065, 345637, 783702, 513831, 1297533);
-insert into viagens_por_tipo values (30, 152080, 146065, 298145, 179713, 477858);
-insert into viagens_por_tipo values (31, 1338963, 1001249, 2340212, 1004162, 3344374);
+insert into tempo_medio_viagens values (1, 78, 41, 13, 24);
+insert into tempo_medio_viagens values (2, 64, 35, 14, 15);
+insert into tempo_medio_viagens values (3, 60, 29, 13, 18);
+insert into tempo_medio_viagens values (4, 64, 30, 14, 22);
+insert into tempo_medio_viagens values (5, 71, 27, 12, 37);
+insert into tempo_medio_viagens values (6, 60, 28, 14, 34);
+insert into tempo_medio_viagens values (7, 67, 29, 14, 17);
+insert into tempo_medio_viagens values (8, 59, 26, 13, 20);
+insert into tempo_medio_viagens values (9, 57, 29, 15, 50);
+insert into tempo_medio_viagens values (10, 60, 28, 13, 21);
+insert into tempo_medio_viagens values (11, 65, 25, 13, 41);
+insert into tempo_medio_viagens values (12, 65, 31, 14, 28);
+insert into tempo_medio_viagens values (13, 77, 33, 14, 0);
+insert into tempo_medio_viagens values (14, 86, 38, 12, 30);
+insert into tempo_medio_viagens values (15, 87, 39, 11, 34);
+insert into tempo_medio_viagens values (16, 76, 34, 12, 42);
+insert into tempo_medio_viagens values (17, 64, 27, 17, 20);
+insert into tempo_medio_viagens values (18, 64, 31, 15, 15);
+insert into tempo_medio_viagens values (19, 70, 34, 14, 11);
+insert into tempo_medio_viagens values (20, 69, 32, 12, 35);
+insert into tempo_medio_viagens values (21, 63, 37, 16, 34);
+insert into tempo_medio_viagens values (22, 67, 32, 15, 29);
+insert into tempo_medio_viagens values (23, 73, 36, 14, 32);
+insert into tempo_medio_viagens values (24, 67, 23, 17, 0);
+insert into tempo_medio_viagens values (25, 64, 31, 15, 19);
+insert into tempo_medio_viagens values (26, 65, 25, 14, 33);
+insert into tempo_medio_viagens values (27, 57, 25, 15, 31);
+insert into tempo_medio_viagens values (28, 58, 27, 16, 0);
+insert into tempo_medio_viagens values (29, 65, 32, 14, 20);
+insert into tempo_medio_viagens values (30, 67, 34, 17, 8);
+insert into tempo_medio_viagens values (31, 62, 34, 16, 46);
 
 create table pop_por_faixa_etaria (
   zona int(11) unsigned not null primary key,
@@ -486,301 +522,6 @@ insert into pop_por_faixa_etaria values (28, 50474, 44165, 52052, 55206, 66248, 
 insert into pop_por_faixa_etaria values (29, 32115, 25832, 41192, 51664, 41192, 68420, 85176, 124972, 120085, 78893, 94253, 763799);
 insert into pop_por_faixa_etaria values (30, 7004, 11207, 14943, 19146, 17278, 21480, 32221, 35023, 37358, 36891, 23815, 256370);
 insert into pop_por_faixa_etaria values (31, 109057, 62917, 98570, 123738, 81792, 148905, 192947, 308296, 241184, 174072, 201336, 1742819);
-
-create table pop_por_condicao_atividade (
-  zona int(11) unsigned not null primary key,
-  ocupado int(11),
-  faz_bico int(11),
-  em_licenca int(11),
-  aposentado int(11),
-  sem_trabalho int(11),
-  nunca_trabalhou int(11),
-  dona_de_casa int(11),
-  estudante int(11),
-  populacao_total int(11)
-) engine=innodb charset=utf8;
-
-insert into pop_por_condicao_atividade values (1, 280772, 9634, 2752, 72257, 26150, 21333, 19956, 53677, 486534);
-insert into pop_por_condicao_atividade values (2, 273618, 17622, 4637, 54723, 51941, 53796, 47303, 118722, 622367);
-insert into pop_por_condicao_atividade values (3, 316131, 30012, 5002, 90037, 45018, 48020, 48020, 138057, 720300);
-insert into pop_por_condicao_atividade values (4, 428517, 36696, 5918, 138498, 62738, 47349, 56819, 142049, 918589);
-insert into pop_por_condicao_atividade values (5, 110343, 2620, 1164, 37848, 10190, 10772, 11063, 23582, 207586);
-insert into pop_por_condicao_atividade values (6, 229672, 20106, 2319, 81970, 31705, 34798, 51038, 81197, 532810);
-insert into pop_por_condicao_atividade values (7, 175512, 5372, 1343, 67608, 17909, 12984, 23282, 55967, 359979);
-insert into pop_por_condicao_atividade values (8, 152815, 9142, 3047, 45714, 26557, 23074, 23945, 53550, 337849);
-insert into pop_por_condicao_atividade values (9, 210984, 11822, 3637, 63204, 33193, 38195, 40468, 71389, 472895);
-insert into pop_por_condicao_atividade values (10, 290652, 19668, 6556, 84136, 60097, 57911, 79765, 146418, 745207);
-insert into pop_por_condicao_atividade values (11, 174334, 14990, 2776, 29425, 27760, 38864, 36088, 78283, 402523);
-insert into pop_por_condicao_atividade values (12, 186728, 11080, 3283, 49247, 29958, 30369, 44322, 80026, 435017);
-insert into pop_por_condicao_atividade values (13, 217863, 20234, 4721, 38446, 46540, 35073, 23607, 101849, 488336);
-insert into pop_por_condicao_atividade values (14, 89314, 444, 1777, 30660, 3776, 5776, 5110, 17996, 154856);
-insert into pop_por_condicao_atividade values (15, 140117, 2919, 973, 40218, 11676, 9730, 8108, 30488, 244232);
-insert into pop_por_condicao_atividade values (16, 137201, 6046, 930, 52090, 14882, 11627, 11162, 28835, 262776);
-insert into pop_por_condicao_atividade values (17, 216562, 5835, 648, 71971, 29826, 35661, 29826, 79752, 470084);
-insert into pop_por_condicao_atividade values (18, 389859, 34125, 4136, 114786, 46534, 38262, 44466, 146843, 819014);
-insert into pop_por_condicao_atividade values (19, 297273, 40071, 8387, 70823, 65232, 49390, 56845, 158421, 746444);
-insert into pop_por_condicao_atividade values (20, 377846, 32284, 5978, 57394, 59785, 76525, 72938, 170987, 853741);
-insert into pop_por_condicao_atividade values (21, 243643, 11492, 5363, 49035, 39841, 42905, 29114, 89642, 511038);
-insert into pop_por_condicao_atividade values (22, 156512, 11767, 2647, 42658, 22358, 21182, 22947, 46777, 326852);
-insert into pop_por_condicao_atividade values (23, 138748, 6794, 1787, 52924, 11800, 15376, 17879, 31468, 276781);
-insert into pop_por_condicao_atividade values (24, 234407, 10082, 5671, 54190, 28985, 41588, 52300, 109011, 536237);
-insert into pop_por_condicao_atividade values (25, 586622, 43133, 17253, 153844, 66138, 100645, 133715, 278933, 1380287);
-insert into pop_por_condicao_atividade values (26, 534879, 66108, 9615, 163468, 98562, 112985, 105773, 260828, 1352224);
-insert into pop_por_condicao_atividade values (27, 615078, 48719, 4059, 219235, 97438, 99468, 107588, 225325, 1416914);
-insert into pop_por_condicao_atividade values (28, 493708, 34701, 11041, 159311, 108836, 86753, 94640, 178239, 1167233);
-insert into pop_por_condicao_atividade values (29, 364445, 16057, 5585, 78893, 46079, 49570, 61439, 141728, 763799);
-insert into pop_por_condicao_atividade values (30, 122814, 5603, 1400, 25216, 16811, 16811, 17745, 49966, 256370);
-insert into pop_por_condicao_atividade values (31, 738233, 52431, 14680, 159391, 153099, 174072, 134224, 316685, 1742819);
-
-create table empregos_por_vinculo (
-  zona int(11) unsigned not null primary key,
-  assalariado_com_carteira int(11),
-  assalariado_sem_carteira int(11),
-  funcionario_publico int(11),
-  autonomo int(11),
-  empregador int(11),
-  profissional_liberal int(11),
-  dono_de_negocio_familiar int(11),
-  trabalhador_familiar int(11),
-  total int(11)
-) engine=innodb charset=utf8;
-
-insert into empregos_por_vinculo values (1, 721728, 82110, 64474, 125928, 23067, 22255, 15498, 6276, 1061339);
-insert into empregos_por_vinculo values (2, 100343, 20421, 14031, 44786, 927, 2849, 6492, 3710, 193562);
-insert into empregos_por_vinculo values (3, 99893, 14976, 10745, 74743, 5617, 3001, 12720, 2000, 223699);
-insert into empregos_por_vinculo values (4, 245241, 37955, 22250, 110458, 6222, 2367, 10653, 1000, 436149);
-insert into empregos_por_vinculo values (5, 130737, 14376, 4095, 31973, 5356, 3460, 1746, 291, 192037);
-insert into empregos_por_vinculo values (6, 61941, 18680, 6344, 47672, 2248, 2128, 5823, 0, 144839);
-insert into empregos_por_vinculo values (7, 134476, 21764, 5635, 52033, 4326, 2479, 9920, 1030, 231666);
-insert into empregos_por_vinculo values (8, 36595, 10782, 5833, 32342, 900, 902, 2636, 0, 89994);
-insert into empregos_por_vinculo values (9, 72078, 13366, 12921, 52024, 2366, 3731, 8732, 1364, 166584);
-insert into empregos_por_vinculo values (10, 78260, 23049, 11772, 65989, 2670, 1092, 12290, 435, 195561);
-insert into empregos_por_vinculo values (11, 63545, 7469, 4733, 38970, 2113, 435, 3223, 447, 120939);
-insert into empregos_por_vinculo values (12, 42316, 12685, 7353, 40497, 0, 447, 10890, 820, 115011);
-insert into empregos_por_vinculo values (13, 33888, 12961, 6540, 39951, 0, 0, 4244, 674, 98261);
-insert into empregos_por_vinculo values (14, 260325, 35649, 15062, 57233, 7289, 11203, 5959, 0, 392722);
-insert into empregos_por_vinculo values (15, 347212, 36934, 9410, 69985, 8387, 22995, 7456, 324, 502707);
-insert into empregos_por_vinculo values (16, 190067, 19216, 4659, 46642, 7517, 4181, 6170, 0, 278456);
-insert into empregos_por_vinculo values (17, 104223, 14571, 8896, 48895, 4174, 3496, 8800, 1296, 194353);
-insert into empregos_por_vinculo values (18, 282186, 38140, 16931, 117383, 6945, 7433, 9785, 0, 478805);
-insert into empregos_por_vinculo values (19, 102145, 15660, 7803, 80483, 465, 2165, 4375, 931, 214032);
-insert into empregos_por_vinculo values (20, 66105, 19895, 21251, 82405, 698, 0, 20327, 3587, 214271);
-insert into empregos_por_vinculo values (21, 118172, 22746, 9958, 64689, 698, 3355, 3941, 0, 223562);
-insert into empregos_por_vinculo values (22, 108042, 21424, 14054, 41633, 588, 2711, 2941, 294, 191691);
-insert into empregos_por_vinculo values (23, 284245, 30083, 9655, 69111, 3196, 8853, 6928, 555, 412629);
-insert into empregos_por_vinculo values (24, 73286, 16797, 18047, 35027, 0, 1260, 5041, 0, 149460);
-insert into empregos_por_vinculo values (25, 339916, 50405, 31617, 153581, 8917, 2184, 11622, 1437, 599683);
-insert into empregos_por_vinculo values (26, 224417, 45585, 36869, 144994, 1559, 3216, 7211, 0, 463854);
-insert into empregos_por_vinculo values (27, 295368, 44833, 59880, 152018, 4384, 9340, 12179, 0, 578005);
-insert into empregos_por_vinculo values (28, 361474, 47076, 15125, 110332, 4732, 6091, 16240, 0, 561075);
-insert into empregos_por_vinculo values (29, 116711, 17221, 28812, 81881, 3957, 1396, 5585, 698, 256264);
-insert into empregos_por_vinculo values (30, 65878, 6537, 7990, 30239, 1400, 222, 2659, 0, 114927);
-insert into empregos_por_vinculo values (31, 396317, 33774, 51319, 198072, 4821, 11647, 18875, 2391, 717219);
-
-create table renda_familiar_per_capita (
-  residência int(11) unsigned not null primary key,
-  renda_total int(11),
-  renda_media_familiar int(11),
-  renda_per_capita int(11),
-  renda_mediana_familiar int(11)
-) engine=innodb charset=utf8;
-
-insert into renda_familiar_per_capita values (1, 796468814, 3941, 1637, 3000);
-insert into renda_familiar_per_capita values (2, 589592671, 3080, 947, 2204);
-insert into renda_familiar_per_capita values (3, 593831507, 2711, 824, 2110);
-insert into renda_familiar_per_capita values (4, 1006017073, 3465, 1095, 2800);
-insert into renda_familiar_per_capita values (5, 363631673, 5029, 1751, 3987);
-insert into renda_familiar_per_capita values (6, 489535836, 2638, 918, 1900);
-insert into renda_familiar_per_capita values (7, 427467013, 3512, 1187, 2845);
-insert into renda_familiar_per_capita values (8, 350988310, 3132, 1038, 2441);
-insert into renda_familiar_per_capita values (9, 475970063, 3143, 1006, 2634);
-insert into renda_familiar_per_capita values (10, 457917675, 2076, 614, 1840);
-insert into renda_familiar_per_capita values (11, 322834242, 2569, 802, 2173);
-insert into renda_familiar_per_capita values (12, 286603604, 2162, 658, 1820);
-insert into renda_familiar_per_capita values (13, 317185962, 2195, 649, 2000);
-insert into renda_familiar_per_capita values (14, 572983560, 8499, 3700, 5587);
-insert into renda_familiar_per_capita values (15, 912028698, 9152, 3734, 6613);
-insert into renda_familiar_per_capita values (16, 554847815, 5417, 2111, 4000);
-insert into renda_familiar_per_capita values (17, 501319951, 3176, 1066, 2209);
-insert into renda_familiar_per_capita values (18, 780248540, 3007, 952, 2209);
-insert into renda_familiar_per_capita values (19, 582844236, 2627, 780, 1870);
-insert into renda_familiar_per_capita values (20, 587124918, 2212, 687, 1900);
-insert into renda_familiar_per_capita values (21, 494430309, 3065, 967, 2209);
-insert into renda_familiar_per_capita values (22, 379746799, 3599, 1161, 2845);
-insert into renda_familiar_per_capita values (23, 582298748, 5551, 2103, 4000);
-insert into renda_familiar_per_capita values (24, 373831519, 2393, 697, 2000);
-insert into renda_familiar_per_capita values (25, 1001045396, 2435, 725, 2030);
-insert into renda_familiar_per_capita values (26, 891512733, 2209, 659, 1800);
-insert into renda_familiar_per_capita values (27, 1300780621, 2883, 918, 2111);
-insert into renda_familiar_per_capita values (28, 1013654206, 2736, 868, 2200);
-insert into renda_familiar_per_capita values (29, 575527457, 2539, 753, 2044);
-insert into renda_familiar_per_capita values (30, 216238162, 2843, 843, 2400);
-insert into renda_familiar_per_capita values (31, 1388590540, 2667, 796, 2000);
-
-create table trabalho_por_vinculo (
-  zona int(11) unsigned not null primary key,
-  assalariado_com_carteira int(11),
-  assalariado_sem_carteira int(11),
-  funcionario_publico int(11),
-  autonomo int(11),
-  empregador int(11),
-  profissional_liberal int(11),
-  dono_de_negocio_familiar int(11),
-  trabalhador_familiar int(11),
-  total_da_populacao_que_trabalha int(11)
-) engine=innodb charset=utf8;
-
-insert into trabalho_por_vinculo values (1, 163784, 30279, 9634, 57806, 13075, 9634, 8946, 0, 293159);
-insert into trabalho_por_vinculo values (2, 180866, 18550, 12057, 68636, 1855, 3710, 6492, 3710, 295879);
-insert into trabalho_por_vinculo values (3, 205085, 23009, 19007, 78032, 6002, 4001, 13005, 3001, 351146);
-insert into trabalho_por_vinculo values (4, 254505, 42614, 26042, 118374, 2367, 4734, 16572, 5918, 471131);
-insert into trabalho_por_vinculo values (5, 58228, 9898, 7278, 22418, 7860, 4949, 2620, 873, 114128);
-insert into trabalho_por_vinculo values (6, 151568, 26292, 8506, 52585, 3866, 3866, 5413, 0, 252098);
-insert into trabalho_por_vinculo values (7, 88651, 13432, 13879, 48803, 2238, 4477, 9850, 895, 182228);
-insert into trabalho_por_vinculo values (8, 94475, 13061, 12190, 40054, 2176, 435, 2176, 435, 165006);
-insert into trabalho_por_vinculo values (9, 132319, 13186, 11822, 51381, 1364, 5911, 9094, 1364, 226444);
-insert into trabalho_por_vinculo values (10, 174828, 32780, 18575, 75394, 2185, 1092, 12019, 0, 316876);
-insert into trabalho_por_vinculo values (11, 118258, 10548, 9438, 46081, 1665, 555, 4996, 555, 192100);
-insert into trabalho_por_vinculo values (12, 113678, 16826, 8618, 53351, 410, 410, 6976, 820, 201092);
-insert into trabalho_por_vinculo values (13, 145691, 29677, 8093, 55308, 0, 0, 3372, 674, 242819);
-insert into trabalho_por_vinculo values (14, 41324, 3999, 7553, 17107, 5332, 13108, 3110, 0, 91536);
-insert into trabalho_por_vinculo values (15, 64220, 10054, 4540, 28218, 12000, 17514, 7135, 324, 144009);
-insert into trabalho_por_vinculo values (16, 70693, 10231, 12092, 37672, 5581, 4185, 3720, 0, 144177);
-insert into trabalho_por_vinculo values (17, 125139, 24638, 10374, 42145, 6483, 5187, 7780, 1296, 223046);
-insert into trabalho_por_vinculo values (18, 274039, 32057, 14477, 93069, 5170, 4136, 5170, 0, 428121);
-insert into trabalho_por_vinculo values (19, 210607, 17705, 8387, 103439, 0, 931, 3727, 931, 345731);
-insert into trabalho_por_vinculo values (20, 218815, 33480, 19131, 115984, 1195, 1195, 22718, 3587, 416109);
-insert into trabalho_por_vinculo values (21, 165493, 17622, 6895, 62826, 766, 3830, 3064, 0, 260499);
-insert into trabalho_por_vinculo values (22, 94142, 11473, 11179, 43541, 2059, 4118, 3824, 588, 170928);
-insert into trabalho_por_vinculo values (23, 75810, 9655, 5363, 35044, 4648, 10370, 6079, 357, 147330);
-insert into trabalho_por_vinculo values (24, 163832, 19533, 20164, 40328, 0, 1260, 5041, 0, 250160);
-insert into trabalho_por_vinculo values (25, 381016, 56074, 33069, 156720, 8626, 0, 10064, 1437, 647009);
-insert into trabalho_por_vinculo values (26, 342563, 60098, 37261, 157458, 1201, 4807, 7211, 0, 610604);
-insert into trabalho_por_vinculo values (27, 369453, 54808, 56838, 148187, 6089, 10149, 22329, 0, 667857);
-insert into trabalho_por_vinculo values (28, 347015, 47320, 12618, 107259, 7886, 3154, 14196, 0, 539450);
-insert into trabalho_por_vinculo values (29, 209451, 39097, 29323, 92158, 5585, 1396, 8378, 698, 386089);
-insert into trabalho_por_vinculo values (30, 75183, 9806, 6537, 33155, 2334, 0, 2801, 0, 129819);
-insert into trabalho_por_vinculo values (31, 448812, 62917, 48236, 209725, 2097, 8389, 23069, 2097, 805345);
-
-create table matriculas_escolares_por_tipo (
-  zona int(11) unsigned not null primary key,
-  publica int(11),
-  particular int(11),
-  total_de_matriculas int(11)
-) engine=innodb charset=utf8;
-
-insert into matriculas_escolares_por_tipo values (1, 76971, 217083, 294055);
-insert into matriculas_escolares_por_tipo values (2, 116179, 34832, 151011);
-insert into matriculas_escolares_por_tipo values (3, 115488, 31998, 147487);
-insert into matriculas_escolares_por_tipo values (4, 122927, 82828, 205755);
-insert into matriculas_escolares_por_tipo values (5, 23918, 46959, 70877);
-insert into matriculas_escolares_por_tipo values (6, 81164, 14713, 95878);
-insert into matriculas_escolares_por_tipo values (7, 61586, 63879, 125466);
-insert into matriculas_escolares_por_tipo values (8, 58074, 18324, 76399);
-insert into matriculas_escolares_por_tipo values (9, 86647, 24979, 111627);
-insert into matriculas_escolares_por_tipo values (10, 171053, 41155, 212208);
-insert into matriculas_escolares_por_tipo values (11, 64769, 34590, 99360);
-insert into matriculas_escolares_por_tipo values (12, 78428, 21297, 99726);
-insert into matriculas_escolares_por_tipo values (13, 105187, 7300, 112487);
-insert into matriculas_escolares_por_tipo values (14, 16704, 28255, 44960);
-insert into matriculas_escolares_por_tipo values (15, 23531, 45307, 68839);
-insert into matriculas_escolares_por_tipo values (16, 26185, 68834, 95020);
-insert into matriculas_escolares_por_tipo values (17, 72318, 35299, 107617);
-insert into matriculas_escolares_por_tipo values (18, 125791, 110081, 235872);
-insert into matriculas_escolares_por_tipo values (19, 184906, 28987, 213894);
-insert into matriculas_escolares_por_tipo values (20, 172657, 30581, 203238);
-insert into matriculas_escolares_por_tipo values (21, 86496, 37331, 123828);
-insert into matriculas_escolares_por_tipo values (22, 73594, 23591, 97186);
-insert into matriculas_escolares_por_tipo values (23, 31479, 130824, 162304);
-insert into matriculas_escolares_por_tipo values (24, 107121, 8821, 115943);
-insert into matriculas_escolares_por_tipo values (25, 290673, 69402, 360075);
-insert into matriculas_escolares_por_tipo values (26, 292683, 61155, 353838);
-insert into matriculas_escolares_por_tipo values (27, 244044, 136062, 380107);
-insert into matriculas_escolares_por_tipo values (28, 237623, 79609, 317233);
-insert into matriculas_escolares_por_tipo values (29, 141916, 26894, 168810);
-insert into matriculas_escolares_por_tipo values (30, 56266, 9223, 65489);
-insert into matriculas_escolares_por_tipo values (31, 365888, 83597, 449486);
-
-create table viagens_atraidas_por_tipo (
-  zona int(11) unsigned not null primary key,
-  coletivo_ int(11),
-  individual int(11),
-  motorizado int(11),
-  nao_motorizado int(11),
-  total int(11)
-) engine=innodb charset=utf8;
-
-insert into viagens_atraidas_por_tipo values (1, 1265604, 675056, 1940660, 849812, 2790473);
-insert into viagens_atraidas_por_tipo values (2, 409680, 328051, 737732, 370079, 1107811);
-insert into viagens_atraidas_por_tipo values (3, 444295, 381612, 825907, 390466, 1216374);
-insert into viagens_atraidas_por_tipo values (4, 793621, 672459, 1466081, 454950, 1921032);
-insert into viagens_atraidas_por_tipo values (5, 250781, 307328, 558110, 130215, 688325);
-insert into viagens_atraidas_por_tipo values (6, 282706, 282457, 565164, 364392, 929556);
-insert into viagens_atraidas_por_tipo values (7, 338990, 396293, 735283, 253127, 988411);
-insert into viagens_atraidas_por_tipo values (8, 218962, 247539, 466501, 211453, 677955);
-insert into viagens_atraidas_por_tipo values (9, 340267, 310090, 650357, 241583, 891941);
-insert into viagens_atraidas_por_tipo values (10, 505829, 309967, 815796, 490815, 1306612);
-insert into viagens_atraidas_por_tipo values (11, 310469, 204011, 514480, 302152, 816632);
-insert into viagens_atraidas_por_tipo values (12, 258158, 170927, 429086, 335760, 764847);
-insert into viagens_atraidas_por_tipo values (13, 283312, 115108, 398420, 335698, 734119);
-insert into viagens_atraidas_por_tipo values (14, 415165, 302968, 718133, 194822, 912956);
-insert into viagens_atraidas_por_tipo values (15, 407083, 545342, 952426, 238779, 1191205);
-insert into viagens_atraidas_por_tipo values (16, 371091, 293868, 664960, 231970, 896930);
-insert into viagens_atraidas_por_tipo values (17, 338015, 357629, 695644, 382233, 1077878);
-insert into viagens_atraidas_por_tipo values (18, 884544, 608413, 1492958, 494580, 1987538);
-insert into viagens_atraidas_por_tipo values (19, 519764, 223626, 743391, 575139, 1318530);
-insert into viagens_atraidas_por_tipo values (20, 511523, 294042, 805565, 594167, 1399732);
-insert into viagens_atraidas_por_tipo values (21, 381567, 294232, 675800, 319432, 995232);
-insert into viagens_atraidas_por_tipo values (22, 292820, 254868, 547688, 179102, 726790);
-insert into viagens_atraidas_por_tipo values (23, 526835, 485228, 1012064, 201401, 1213465);
-insert into viagens_atraidas_por_tipo values (24, 309273, 233029, 542303, 303445, 845749);
-insert into viagens_atraidas_por_tipo values (25, 860077, 741764, 1601841, 944070, 2545912);
-insert into viagens_atraidas_por_tipo values (26, 734236, 716426, 1450662, 1138476, 2589138);
-insert into viagens_atraidas_por_tipo values (27, 1082722, 1352677, 2435399, 972165, 3407564);
-insert into viagens_atraidas_por_tipo values (28, 878559, 1002609, 1881169, 776896, 2658065);
-insert into viagens_atraidas_por_tipo values (29, 436949, 346916, 783865, 514646, 1298512);
-insert into viagens_atraidas_por_tipo values (30, 149177, 148053, 297230, 179713, 476944);
-insert into viagens_atraidas_por_tipo values (31, 1341883, 992916, 2334800, 1004424, 3339224);
-
-create table empregos_por_tipo_localidade (
-  zona int(11) unsigned not null primary key,
-  empregos_em_endereco_fixo int(11),
-  empregos_na_propria_residencia int(11),
-  empregos_sem_endereco_fixo** int(11),
-  total int(11)
-) engine=innodb charset=utf8;
-
-insert into empregos_por_tipo_localidade values (1, 33032, 1013167, 15139, 1061339);
-insert into empregos_por_tipo_localidade values (2, 23188, 156461, 13912, 193562);
-insert into empregos_por_tipo_localidade values (3, 24010, 164674, 35014, 223699);
-insert into empregos_por_tipo_localidade values (4, 39063, 367492, 29593, 436149);
-insert into empregos_por_tipo_localidade values (5, 5822, 177771, 8443, 192037);
-insert into empregos_por_tipo_localidade values (6, 10826, 113907, 20106, 144839);
-insert into empregos_por_tipo_localidade values (7, 20595, 206593, 4477, 231666);
-insert into empregos_por_tipo_localidade values (8, 10448, 72144, 7401, 89994);
-insert into empregos_por_tipo_localidade values (9, 18643, 131572, 16369, 166584);
-insert into empregos_por_tipo_localidade values (10, 20760, 145298, 29502, 195561);
-insert into empregos_por_tipo_localidade values (11, 9438, 98176, 13324, 120939);
-insert into empregos_por_tipo_localidade values (12, 11491, 81769, 21750, 115011);
-insert into empregos_por_tipo_localidade values (13, 23607, 63862, 10791, 98261);
-insert into empregos_por_tipo_localidade values (14, 15774, 373615, 3332, 392722);
-insert into empregos_por_tipo_localidade values (15, 24974, 468651, 9081, 502707);
-insert into empregos_por_tipo_localidade values (16, 19068, 253806, 5581, 278456);
-insert into empregos_por_tipo_localidade values (17, 15561, 170362, 8429, 194353);
-insert into empregos_por_tipo_localidade values (18, 29989, 421929, 26886, 478805);
-insert into empregos_por_tipo_localidade values (19, 20501, 176756, 16774, 214032);
-insert into empregos_por_tipo_localidade values (20, 34675, 138941, 40654, 214271);
-insert into empregos_por_tipo_localidade values (21, 16855, 186020, 20686, 223562);
-insert into empregos_por_tipo_localidade values (22, 11473, 163154, 17063, 191691);
-insert into empregos_por_tipo_localidade values (23, 19310, 382233, 11085, 412629);
-insert into empregos_por_tipo_localidade values (24, 11342, 117323, 20794, 149460);
-insert into empregos_por_tipo_localidade values (25, 34507, 499037, 66138, 599683);
-insert into empregos_por_tipo_localidade values (26, 32453, 359282, 72118, 463854);
-insert into empregos_por_tipo_localidade values (27, 38569, 490717, 48719, 578005);
-insert into empregos_por_tipo_localidade values (28, 25237, 491672, 44165, 561075);
-insert into empregos_por_tipo_localidade values (29, 23039, 196221, 37003, 256264);
-insert into empregos_por_tipo_localidade values (30, 10740, 95781, 8405, 114927);
-insert into empregos_por_tipo_localidade values (31, 60820, 606065, 50334, 717219);
 
 create table viagens_atraidas_por_modo (
   zona int(11) unsigned not null primary key,
@@ -831,47 +572,134 @@ insert into viagens_atraidas_por_modo values (29, 292731, 13638, 75475, 231227, 
 insert into viagens_atraidas_por_modo values (30, 121047, 5054, 15661, 96598, 39829, 0, 6306, 1106, 10720, 2183, 177530, 903, 476944);
 insert into viagens_atraidas_por_modo values (31, 823812, 67115, 201154, 655372, 233562, 2451, 71683, 178117, 95811, 26964, 977459, 5718, 3339224);
 
-create table pop_por_renda (
+create table viagens_atraidas_por_tipo (
   zona int(11) unsigned not null primary key,
-  ate_1.244 int(11),
-  1.244_a_2.488 int(11),
-  2.488_a_4.976 int(11),
-  4.976_a_9.330 int(11),
-  mais_de_9.330 int(11),
+  coletivo_ int(11),
+  individual int(11),
+  motorizado int(11),
+  nao_motorizado int(11),
   total int(11)
 ) engine=innodb charset=utf8;
 
-insert into pop_por_renda values (1, 47483, 141074, 163095, 97031, 37849, 486534);
-insert into pop_por_renda values (2, 108520, 188286, 226315, 66781, 32463, 622367);
-insert into pop_por_renda values (3, 123051, 259107, 234097, 88036, 16006, 720300);
-insert into pop_por_renda values (4, 108904, 223728, 348022, 202421, 35512, 918589);
-insert into pop_por_renda values (5, 18050, 34063, 66963, 56773, 31734, 207586);
-insert into pop_por_renda values (6, 133009, 166261, 156208, 49491, 27839, 532810);
-insert into pop_por_renda values (7, 28207, 89099, 145962, 74324, 22386, 359979);
-insert into pop_por_renda values (8, 50067, 97958, 123645, 58339, 7836, 337849);
-insert into pop_por_renda values (9, 64113, 117769, 180518, 90486, 20007, 472895);
-insert into pop_por_renda values (10, 191218, 309228, 206516, 32780, 5463, 745207);
-insert into pop_por_renda values (11, 63293, 149905, 139356, 45526, 4441, 402523);
-insert into pop_por_renda values (12, 101777, 183445, 116141, 29548, 4103, 435017);
-insert into pop_por_renda values (13, 110617, 190883, 155134, 31701, 0, 488336);
-insert into pop_por_renda values (14, 4665, 10886, 43324, 47545, 48434, 154856);
-insert into pop_por_renda values (15, 4216, 14595, 48003, 82708, 94708, 244232);
-insert into pop_por_renda values (16, 15347, 33021, 89762, 82786, 41858, 262776);
-insert into pop_por_renda values (17, 79103, 154317, 148481, 79752, 8429, 470084);
-insert into pop_por_renda values (18, 112717, 273004, 287482, 115820, 29989, 819014);
-insert into pop_por_renda values (19, 123009, 301000, 261861, 40071, 20501, 746444);
-insert into pop_por_renda values (20, 203271, 322843, 269036, 55002, 3587, 853741);
-insert into pop_por_renda values (21, 79682, 198439, 145573, 60527, 26816, 511038);
-insert into pop_por_renda values (22, 40599, 92083, 113853, 63252, 17063, 326852);
-insert into pop_por_renda values (23, 16091, 49348, 80817, 84393, 46130, 276781);
-insert into pop_por_renda values (24, 107751, 190298, 202270, 29615, 6301, 536237);
-insert into pop_por_renda values (25, 228610, 562179, 422713, 162471, 4313, 1380287);
-insert into pop_por_renda values (26, 365400, 467569, 403864, 90148, 25241, 1352224);
-insert into pop_por_renda values (27, 225325, 529820, 403962, 213146, 44659, 1416914);
-insert into pop_por_renda values (28, 184549, 444810, 399067, 121455, 17350, 1167233);
-insert into pop_por_renda values (29, 138936, 275777, 255530, 85176, 8378, 763799);
-insert into pop_por_renda values (30, 30353, 112541, 86390, 16344, 10740, 256370);
-insert into pop_por_renda values (31, 392186, 687899, 453007, 157294, 52431, 1742819);
+insert into viagens_atraidas_por_tipo values (1, 1265604, 675056, 1940660, 849812, 2790473);
+insert into viagens_atraidas_por_tipo values (2, 409680, 328051, 737732, 370079, 1107811);
+insert into viagens_atraidas_por_tipo values (3, 444295, 381612, 825907, 390466, 1216374);
+insert into viagens_atraidas_por_tipo values (4, 793621, 672459, 1466081, 454950, 1921032);
+insert into viagens_atraidas_por_tipo values (5, 250781, 307328, 558110, 130215, 688325);
+insert into viagens_atraidas_por_tipo values (6, 282706, 282457, 565164, 364392, 929556);
+insert into viagens_atraidas_por_tipo values (7, 338990, 396293, 735283, 253127, 988411);
+insert into viagens_atraidas_por_tipo values (8, 218962, 247539, 466501, 211453, 677955);
+insert into viagens_atraidas_por_tipo values (9, 340267, 310090, 650357, 241583, 891941);
+insert into viagens_atraidas_por_tipo values (10, 505829, 309967, 815796, 490815, 1306612);
+insert into viagens_atraidas_por_tipo values (11, 310469, 204011, 514480, 302152, 816632);
+insert into viagens_atraidas_por_tipo values (12, 258158, 170927, 429086, 335760, 764847);
+insert into viagens_atraidas_por_tipo values (13, 283312, 115108, 398420, 335698, 734119);
+insert into viagens_atraidas_por_tipo values (14, 415165, 302968, 718133, 194822, 912956);
+insert into viagens_atraidas_por_tipo values (15, 407083, 545342, 952426, 238779, 1191205);
+insert into viagens_atraidas_por_tipo values (16, 371091, 293868, 664960, 231970, 896930);
+insert into viagens_atraidas_por_tipo values (17, 338015, 357629, 695644, 382233, 1077878);
+insert into viagens_atraidas_por_tipo values (18, 884544, 608413, 1492958, 494580, 1987538);
+insert into viagens_atraidas_por_tipo values (19, 519764, 223626, 743391, 575139, 1318530);
+insert into viagens_atraidas_por_tipo values (20, 511523, 294042, 805565, 594167, 1399732);
+insert into viagens_atraidas_por_tipo values (21, 381567, 294232, 675800, 319432, 995232);
+insert into viagens_atraidas_por_tipo values (22, 292820, 254868, 547688, 179102, 726790);
+insert into viagens_atraidas_por_tipo values (23, 526835, 485228, 1012064, 201401, 1213465);
+insert into viagens_atraidas_por_tipo values (24, 309273, 233029, 542303, 303445, 845749);
+insert into viagens_atraidas_por_tipo values (25, 860077, 741764, 1601841, 944070, 2545912);
+insert into viagens_atraidas_por_tipo values (26, 734236, 716426, 1450662, 1138476, 2589138);
+insert into viagens_atraidas_por_tipo values (27, 1082722, 1352677, 2435399, 972165, 3407564);
+insert into viagens_atraidas_por_tipo values (28, 878559, 1002609, 1881169, 776896, 2658065);
+insert into viagens_atraidas_por_tipo values (29, 436949, 346916, 783865, 514646, 1298512);
+insert into viagens_atraidas_por_tipo values (30, 149177, 148053, 297230, 179713, 476944);
+insert into viagens_atraidas_por_tipo values (31, 1341883, 992916, 2334800, 1004424, 3339224);
+
+create table viagens_atraidas_por_motivo (
+  zona int(11) unsigned not null primary key,
+  trabalho_na_industria int(11),
+  trabalho_no_comercio int(11),
+  trabalho_em_servicos int(11),
+  educacao int(11),
+  compras int(11),
+  saude int(11),
+  lazer int(11),
+  procurar_emprego int(11),
+  assuntos_pessoais int(11),
+  total int(11)
+) engine=innodb charset=utf8;
+
+insert into viagens_atraidas_por_motivo values (1, 137982, 340066, 1123121, 452249, 130321, 89492, 94718, 10829, 411697, 2790473);
+insert into viagens_atraidas_por_motivo values (2, 61412, 59792, 345171, 452034, 30743, 21249, 32708, 747, 103955, 1107812);
+insert into viagens_atraidas_por_motivo values (3, 91285, 111301, 335904, 469488, 37836, 39723, 34199, 3508, 93130, 1216374);
+insert into viagens_atraidas_por_motivo values (4, 84153, 118569, 659707, 552389, 111288, 83233, 109362, 5915, 196415, 1921032);
+insert into viagens_atraidas_por_motivo values (5, 69007, 72988, 220705, 163257, 27456, 42354, 26785, 0, 65774, 688325);
+insert into viagens_atraidas_por_motivo values (6, 85092, 85400, 219593, 300169, 37906, 37411, 52262, 1808, 109917, 929557);
+insert into viagens_atraidas_por_motivo values (7, 58804, 92178, 278092, 314006, 39085, 44884, 45389, 5375, 110598, 988411);
+insert into viagens_atraidas_por_motivo values (8, 31464, 56603, 161573, 237550, 53652, 31824, 25188, 1750, 78351, 677955);
+insert into viagens_atraidas_por_motivo values (9, 43336, 56700, 263886, 321858, 34929, 43168, 44505, 2541, 81018, 891941);
+insert into viagens_atraidas_por_motivo values (10, 53555, 129838, 263951, 602528, 26750, 44905, 39920, 2200, 142964, 1306612);
+insert into viagens_atraidas_por_motivo values (11, 60604, 48294, 190040, 323027, 40884, 30640, 34941, 1366, 86836, 816633);
+insert into viagens_atraidas_por_motivo values (12, 52826, 75290, 168573, 304664, 33922, 22333, 30749, 1692, 74798, 764848);
+insert into viagens_atraidas_por_motivo values (13, 46699, 44597, 194595, 317295, 20283, 36035, 25060, 3154, 46402, 734119);
+insert into viagens_atraidas_por_motivo values (14, 48089, 63022, 461902, 99729, 25500, 56232, 46186, 1842, 110455, 912956);
+insert into viagens_atraidas_por_motivo values (15, 83925, 80923, 574927, 167458, 35637, 56453, 56838, 5783, 129263, 1191206);
+insert into viagens_atraidas_por_motivo values (16, 33297, 51156, 399296, 189349, 42732, 40182, 40959, 1526, 98433, 896930);
+insert into viagens_atraidas_por_motivo values (17, 90626, 72253, 287837, 364262, 48080, 38587, 46484, 2191, 127559, 1077878);
+insert into viagens_atraidas_por_motivo values (18, 110609, 146404, 702069, 612497, 83174, 54717, 71456, 9180, 197434, 1987538);
+insert into viagens_atraidas_por_motivo values (19, 58194, 103370, 381495, 536985, 45276, 45176, 22765, 2178, 123092, 1318531);
+insert into viagens_atraidas_por_motivo values (20, 96516, 79928, 379829, 607219, 56923, 36232, 42345, 3234, 97508, 1399733);
+insert into viagens_atraidas_por_motivo values (21, 47780, 89826, 333232, 353445, 31924, 17428, 34818, 896, 85883, 995233);
+insert into viagens_atraidas_por_motivo values (22, 50164, 58314, 271364, 244648, 22370, 21896, 20323, 1944, 35768, 726791);
+insert into viagens_atraidas_por_motivo values (23, 71747, 108427, 446760, 287182, 72373, 33923, 60671, 1623, 130760, 1213466);
+insert into viagens_atraidas_por_motivo values (24, 93926, 63710, 230229, 308254, 23754, 40231, 24961, 3693, 56991, 845749);
+insert into viagens_atraidas_por_motivo values (25, 341964, 117854, 805780, 915203, 77891, 53933, 75101, 2880, 155305, 2545912);
+insert into viagens_atraidas_por_motivo values (26, 268804, 177086, 646257, 920554, 125391, 97131, 155881, 2810, 195224, 2589138);
+insert into viagens_atraidas_por_motivo values (27, 287366, 239333, 816765, 922261, 331064, 201985, 201211, 0, 407580, 3407565);
+insert into viagens_atraidas_por_motivo values (28, 380384, 225146, 601284, 758690, 135865, 125519, 98669, 758, 331750, 2658066);
+insert into viagens_atraidas_por_motivo values (29, 106109, 115364, 396175, 506520, 29391, 24812, 27757, 344, 92039, 1298512);
+insert into viagens_atraidas_por_motivo values (30, 63194, 33560, 146047, 190337, 7096, 5458, 10346, 0, 20907, 476944);
+insert into viagens_atraidas_por_motivo values (31, 327065, 327024, 967855, 1194721, 119935, 82339, 52213, 5471, 262603, 3339225);
+
+create table pop_por_grau_de_instrucao (
+  zona int(11) unsigned not null primary key,
+  nao_alfabetizado_primario_incompleto int(11),
+  primario_completo_ginasio_incompleto int(11),
+  ginasio_completo_colegial_incompleto int(11),
+  colegial_completo_superior_incompleto int(11),
+  superior_completo int(11),
+  total int(11)
+) engine=innodb charset=utf8;
+
+insert into pop_por_grau_de_instrucao values (1, 47483, 69504, 77763, 158966, 132816, 486534);
+insert into pop_por_grau_de_instrucao values (2, 122432, 123360, 89969, 217040, 69564, 622367);
+insert into pop_por_grau_de_instrucao values (3, 152063, 177073, 123051, 201083, 67027, 720300);
+insert into pop_por_grau_de_instrucao values (4, 157438, 171643, 164541, 243852, 181113, 918589);
+insert into pop_por_grau_de_instrucao values (5, 25329, 35228, 23873, 68127, 55026, 207586);
+insert into pop_por_grau_de_instrucao values (6, 109036, 129915, 92797, 156208, 44851, 532810);
+insert into pop_por_grau_de_instrucao values (7, 42087, 73876, 54623, 115515, 73876, 359979);
+insert into pop_por_grau_de_instrucao values (8, 60516, 63564, 55292, 124516, 33959, 337849);
+insert into pop_por_grau_de_instrucao values (9, 85030, 91850, 85030, 155055, 55929, 472895);
+insert into pop_por_grau_de_instrucao values (10, 177013, 171550, 140955, 208701, 46985, 745207);
+insert into pop_por_grau_de_instrucao values (11, 90498, 78283, 72731, 135469, 25539, 402523);
+insert into pop_por_grau_de_instrucao values (12, 96442, 121476, 75512, 125169, 16415, 435017);
+insert into pop_por_grau_de_instrucao values (13, 115339, 103198, 109943, 142319, 17536, 488336);
+insert into pop_por_grau_de_instrucao values (14, 11330, 13552, 8442, 31104, 90425, 154856);
+insert into pop_por_grau_de_instrucao values (15, 21731, 19136, 19136, 53192, 131035, 244232);
+insert into pop_por_grau_de_instrucao values (16, 25114, 30230, 24649, 65112, 117667, 262776);
+insert into pop_por_grau_de_instrucao values (17, 100500, 82345, 80400, 141997, 64839, 470084);
+insert into pop_por_grau_de_instrucao values (18, 136502, 196480, 142707, 226470, 116854, 819014);
+insert into pop_por_grau_de_instrucao values (19, 190105, 163080, 130464, 219926, 42867, 746444);
+insert into pop_por_grau_de_instrucao values (20, 218815, 197293, 155443, 236751, 45437, 853741);
+insert into pop_por_grau_de_instrucao values (21, 94239, 115692, 91940, 136378, 72786, 511038);
+insert into pop_por_grau_de_instrucao values (22, 51778, 54132, 59427, 109440, 52072, 326852);
+insert into pop_por_grau_de_instrucao values (23, 22171, 33256, 35759, 76168, 109425, 276781);
+insert into pop_por_grau_de_instrucao values (24, 118463, 127915, 110272, 158791, 20794, 536237);
+insert into pop_por_grau_de_instrucao values (25, 294748, 314878, 284684, 409772, 76203, 1380287);
+insert into pop_por_grau_de_instrucao values (26, 310110, 355785, 212749, 391844, 81734, 1352224);
+insert into pop_por_grau_de_instrucao values (27, 263895, 269985, 229385, 464861, 188786, 1416914);
+insert into pop_por_grau_de_instrucao values (28, 249220, 206631, 227137, 353324, 130919, 1167233);
+insert into pop_por_grau_de_instrucao values (29, 175939, 157088, 150106, 224811, 55853, 763799);
+insert into pop_por_grau_de_instrucao values (30, 48098, 51834, 69112, 65376, 21947, 256370);
+insert into pop_por_grau_de_instrucao values (31, 390089, 364922, 360727, 494952, 132127, 1742819);
 
 create table pop_por_genero (
   zona int(11) unsigned not null primary key,
@@ -911,6 +739,88 @@ insert into pop_por_genero values (28, 597812, 569420, 1167233);
 insert into pop_por_genero values (29, 370031, 393768, 763799);
 insert into pop_por_genero values (30, 122814, 133555, 256370);
 insert into pop_por_genero values (31, 870360, 872458, 1742819);
+
+create table pop_por_renda (
+  zona int(11) unsigned not null primary key,
+  ate_1244 int(11),
+  1244_a_2488 int(11),
+  2488_a_4976 int(11),
+  4976_a_9330 int(11),
+  mais_de_9330 int(11),
+  total int(11)
+) engine=innodb charset=utf8;
+
+insert into pop_por_renda values (1, 47483, 141074, 163095, 97031, 37849, 486534);
+insert into pop_por_renda values (2, 108520, 188286, 226315, 66781, 32463, 622367);
+insert into pop_por_renda values (3, 123051, 259107, 234097, 88036, 16006, 720300);
+insert into pop_por_renda values (4, 108904, 223728, 348022, 202421, 35512, 918589);
+insert into pop_por_renda values (5, 18050, 34063, 66963, 56773, 31734, 207586);
+insert into pop_por_renda values (6, 133009, 166261, 156208, 49491, 27839, 532810);
+insert into pop_por_renda values (7, 28207, 89099, 145962, 74324, 22386, 359979);
+insert into pop_por_renda values (8, 50067, 97958, 123645, 58339, 7836, 337849);
+insert into pop_por_renda values (9, 64113, 117769, 180518, 90486, 20007, 472895);
+insert into pop_por_renda values (10, 191218, 309228, 206516, 32780, 5463, 745207);
+insert into pop_por_renda values (11, 63293, 149905, 139356, 45526, 4441, 402523);
+insert into pop_por_renda values (12, 101777, 183445, 116141, 29548, 4103, 435017);
+insert into pop_por_renda values (13, 110617, 190883, 155134, 31701, 0, 488336);
+insert into pop_por_renda values (14, 4665, 10886, 43324, 47545, 48434, 154856);
+insert into pop_por_renda values (15, 4216, 14595, 48003, 82708, 94708, 244232);
+insert into pop_por_renda values (16, 15347, 33021, 89762, 82786, 41858, 262776);
+insert into pop_por_renda values (17, 79103, 154317, 148481, 79752, 8429, 470084);
+insert into pop_por_renda values (18, 112717, 273004, 287482, 115820, 29989, 819014);
+insert into pop_por_renda values (19, 123009, 301000, 261861, 40071, 20501, 746444);
+insert into pop_por_renda values (20, 203271, 322843, 269036, 55002, 3587, 853741);
+insert into pop_por_renda values (21, 79682, 198439, 145573, 60527, 26816, 511038);
+insert into pop_por_renda values (22, 40599, 92083, 113853, 63252, 17063, 326852);
+insert into pop_por_renda values (23, 16091, 49348, 80817, 84393, 46130, 276781);
+insert into pop_por_renda values (24, 107751, 190298, 202270, 29615, 6301, 536237);
+insert into pop_por_renda values (25, 228610, 562179, 422713, 162471, 4313, 1380287);
+insert into pop_por_renda values (26, 365400, 467569, 403864, 90148, 25241, 1352224);
+insert into pop_por_renda values (27, 225325, 529820, 403962, 213146, 44659, 1416914);
+insert into pop_por_renda values (28, 184549, 444810, 399067, 121455, 17350, 1167233);
+insert into pop_por_renda values (29, 138936, 275777, 255530, 85176, 8378, 763799);
+insert into pop_por_renda values (30, 30353, 112541, 86390, 16344, 10740, 256370);
+insert into pop_por_renda values (31, 392186, 687899, 453007, 157294, 52431, 1742819);
+
+create table renda_familiar_per_capita (
+  residência int(11) unsigned not null primary key,
+  renda_total int(11),
+  renda_media_familiar int(11),
+  renda_per_capita int(11),
+  renda_mediana_familiar int(11)
+) engine=innodb charset=utf8;
+
+insert into renda_familiar_per_capita values (1, 796468814, 3941, 1637, 3000);
+insert into renda_familiar_per_capita values (2, 589592671, 3080, 947, 2204);
+insert into renda_familiar_per_capita values (3, 593831507, 2711, 824, 2110);
+insert into renda_familiar_per_capita values (4, 1006017073, 3465, 1095, 2800);
+insert into renda_familiar_per_capita values (5, 363631673, 5029, 1751, 3987);
+insert into renda_familiar_per_capita values (6, 489535836, 2638, 918, 1900);
+insert into renda_familiar_per_capita values (7, 427467013, 3512, 1187, 2845);
+insert into renda_familiar_per_capita values (8, 350988310, 3132, 1038, 2441);
+insert into renda_familiar_per_capita values (9, 475970063, 3143, 1006, 2634);
+insert into renda_familiar_per_capita values (10, 457917675, 2076, 614, 1840);
+insert into renda_familiar_per_capita values (11, 322834242, 2569, 802, 2173);
+insert into renda_familiar_per_capita values (12, 286603604, 2162, 658, 1820);
+insert into renda_familiar_per_capita values (13, 317185962, 2195, 649, 2000);
+insert into renda_familiar_per_capita values (14, 572983560, 8499, 3700, 5587);
+insert into renda_familiar_per_capita values (15, 912028698, 9152, 3734, 6613);
+insert into renda_familiar_per_capita values (16, 554847815, 5417, 2111, 4000);
+insert into renda_familiar_per_capita values (17, 501319951, 3176, 1066, 2209);
+insert into renda_familiar_per_capita values (18, 780248540, 3007, 952, 2209);
+insert into renda_familiar_per_capita values (19, 582844236, 2627, 780, 1870);
+insert into renda_familiar_per_capita values (20, 587124918, 2212, 687, 1900);
+insert into renda_familiar_per_capita values (21, 494430309, 3065, 967, 2209);
+insert into renda_familiar_per_capita values (22, 379746799, 3599, 1161, 2845);
+insert into renda_familiar_per_capita values (23, 582298748, 5551, 2103, 4000);
+insert into renda_familiar_per_capita values (24, 373831519, 2393, 697, 2000);
+insert into renda_familiar_per_capita values (25, 1001045396, 2435, 725, 2030);
+insert into renda_familiar_per_capita values (26, 891512733, 2209, 659, 1800);
+insert into renda_familiar_per_capita values (27, 1300780621, 2883, 918, 2111);
+insert into renda_familiar_per_capita values (28, 1013654206, 2736, 868, 2200);
+insert into renda_familiar_per_capita values (29, 575527457, 2539, 753, 2044);
+insert into renda_familiar_per_capita values (30, 216238162, 2843, 843, 2400);
+insert into renda_familiar_per_capita values (31, 1388590540, 2667, 796, 2000);
 
 create table automoveis_por_residencia (
   zona int(11) unsigned not null primary key,
@@ -953,3 +863,93 @@ insert into automoveis_por_residencia values (28, 146941, 174493, 41327, 4591, 3
 insert into automoveis_por_residencia values (29, 100584, 93399, 26778, 3918, 1959, 226641);
 insert into automoveis_por_residencia values (30, 29391, 36389, 8397, 1399, 466, 76045);
 insert into automoveis_por_residencia values (31, 247328, 227382, 35902, 7978, 1994, 520586);
+
+create table trabalho_por_vinculo (
+  zona int(11) unsigned not null primary key,
+  assalariado_com_carteira int(11),
+  assalariado_sem_carteira int(11),
+  funcionario_publico int(11),
+  autonomo int(11),
+  empregador int(11),
+  profissional_liberal int(11),
+  dono_de_negocio_familiar int(11),
+  trabalhador_familiar int(11),
+  total_da_populacao_que_trabalha int(11)
+) engine=innodb charset=utf8;
+
+insert into trabalho_por_vinculo values (1, 163784, 30279, 9634, 57806, 13075, 9634, 8946, 0, 293159);
+insert into trabalho_por_vinculo values (2, 180866, 18550, 12057, 68636, 1855, 3710, 6492, 3710, 295879);
+insert into trabalho_por_vinculo values (3, 205085, 23009, 19007, 78032, 6002, 4001, 13005, 3001, 351146);
+insert into trabalho_por_vinculo values (4, 254505, 42614, 26042, 118374, 2367, 4734, 16572, 5918, 471131);
+insert into trabalho_por_vinculo values (5, 58228, 9898, 7278, 22418, 7860, 4949, 2620, 873, 114128);
+insert into trabalho_por_vinculo values (6, 151568, 26292, 8506, 52585, 3866, 3866, 5413, 0, 252098);
+insert into trabalho_por_vinculo values (7, 88651, 13432, 13879, 48803, 2238, 4477, 9850, 895, 182228);
+insert into trabalho_por_vinculo values (8, 94475, 13061, 12190, 40054, 2176, 435, 2176, 435, 165006);
+insert into trabalho_por_vinculo values (9, 132319, 13186, 11822, 51381, 1364, 5911, 9094, 1364, 226444);
+insert into trabalho_por_vinculo values (10, 174828, 32780, 18575, 75394, 2185, 1092, 12019, 0, 316876);
+insert into trabalho_por_vinculo values (11, 118258, 10548, 9438, 46081, 1665, 555, 4996, 555, 192100);
+insert into trabalho_por_vinculo values (12, 113678, 16826, 8618, 53351, 410, 410, 6976, 820, 201092);
+insert into trabalho_por_vinculo values (13, 145691, 29677, 8093, 55308, 0, 0, 3372, 674, 242819);
+insert into trabalho_por_vinculo values (14, 41324, 3999, 7553, 17107, 5332, 13108, 3110, 0, 91536);
+insert into trabalho_por_vinculo values (15, 64220, 10054, 4540, 28218, 12000, 17514, 7135, 324, 144009);
+insert into trabalho_por_vinculo values (16, 70693, 10231, 12092, 37672, 5581, 4185, 3720, 0, 144177);
+insert into trabalho_por_vinculo values (17, 125139, 24638, 10374, 42145, 6483, 5187, 7780, 1296, 223046);
+insert into trabalho_por_vinculo values (18, 274039, 32057, 14477, 93069, 5170, 4136, 5170, 0, 428121);
+insert into trabalho_por_vinculo values (19, 210607, 17705, 8387, 103439, 0, 931, 3727, 931, 345731);
+insert into trabalho_por_vinculo values (20, 218815, 33480, 19131, 115984, 1195, 1195, 22718, 3587, 416109);
+insert into trabalho_por_vinculo values (21, 165493, 17622, 6895, 62826, 766, 3830, 3064, 0, 260499);
+insert into trabalho_por_vinculo values (22, 94142, 11473, 11179, 43541, 2059, 4118, 3824, 588, 170928);
+insert into trabalho_por_vinculo values (23, 75810, 9655, 5363, 35044, 4648, 10370, 6079, 357, 147330);
+insert into trabalho_por_vinculo values (24, 163832, 19533, 20164, 40328, 0, 1260, 5041, 0, 250160);
+insert into trabalho_por_vinculo values (25, 381016, 56074, 33069, 156720, 8626, 0, 10064, 1437, 647009);
+insert into trabalho_por_vinculo values (26, 342563, 60098, 37261, 157458, 1201, 4807, 7211, 0, 610604);
+insert into trabalho_por_vinculo values (27, 369453, 54808, 56838, 148187, 6089, 10149, 22329, 0, 667857);
+insert into trabalho_por_vinculo values (28, 347015, 47320, 12618, 107259, 7886, 3154, 14196, 0, 539450);
+insert into trabalho_por_vinculo values (29, 209451, 39097, 29323, 92158, 5585, 1396, 8378, 698, 386089);
+insert into trabalho_por_vinculo values (30, 75183, 9806, 6537, 33155, 2334, 0, 2801, 0, 129819);
+insert into trabalho_por_vinculo values (31, 448812, 62917, 48236, 209725, 2097, 8389, 23069, 2097, 805345);
+
+create table pop_por_condicao_atividade (
+  zona int(11) unsigned not null primary key,
+  ocupado int(11),
+  faz_bico int(11),
+  em_licenca int(11),
+  aposentado int(11),
+  sem_trabalho int(11),
+  nunca_trabalhou int(11),
+  dona_de_casa int(11),
+  estudante int(11),
+  populacao_total int(11)
+) engine=innodb charset=utf8;
+
+insert into pop_por_condicao_atividade values (1, 280772, 9634, 2752, 72257, 26150, 21333, 19956, 53677, 486534);
+insert into pop_por_condicao_atividade values (2, 273618, 17622, 4637, 54723, 51941, 53796, 47303, 118722, 622367);
+insert into pop_por_condicao_atividade values (3, 316131, 30012, 5002, 90037, 45018, 48020, 48020, 138057, 720300);
+insert into pop_por_condicao_atividade values (4, 428517, 36696, 5918, 138498, 62738, 47349, 56819, 142049, 918589);
+insert into pop_por_condicao_atividade values (5, 110343, 2620, 1164, 37848, 10190, 10772, 11063, 23582, 207586);
+insert into pop_por_condicao_atividade values (6, 229672, 20106, 2319, 81970, 31705, 34798, 51038, 81197, 532810);
+insert into pop_por_condicao_atividade values (7, 175512, 5372, 1343, 67608, 17909, 12984, 23282, 55967, 359979);
+insert into pop_por_condicao_atividade values (8, 152815, 9142, 3047, 45714, 26557, 23074, 23945, 53550, 337849);
+insert into pop_por_condicao_atividade values (9, 210984, 11822, 3637, 63204, 33193, 38195, 40468, 71389, 472895);
+insert into pop_por_condicao_atividade values (10, 290652, 19668, 6556, 84136, 60097, 57911, 79765, 146418, 745207);
+insert into pop_por_condicao_atividade values (11, 174334, 14990, 2776, 29425, 27760, 38864, 36088, 78283, 402523);
+insert into pop_por_condicao_atividade values (12, 186728, 11080, 3283, 49247, 29958, 30369, 44322, 80026, 435017);
+insert into pop_por_condicao_atividade values (13, 217863, 20234, 4721, 38446, 46540, 35073, 23607, 101849, 488336);
+insert into pop_por_condicao_atividade values (14, 89314, 444, 1777, 30660, 3776, 5776, 5110, 17996, 154856);
+insert into pop_por_condicao_atividade values (15, 140117, 2919, 973, 40218, 11676, 9730, 8108, 30488, 244232);
+insert into pop_por_condicao_atividade values (16, 137201, 6046, 930, 52090, 14882, 11627, 11162, 28835, 262776);
+insert into pop_por_condicao_atividade values (17, 216562, 5835, 648, 71971, 29826, 35661, 29826, 79752, 470084);
+insert into pop_por_condicao_atividade values (18, 389859, 34125, 4136, 114786, 46534, 38262, 44466, 146843, 819014);
+insert into pop_por_condicao_atividade values (19, 297273, 40071, 8387, 70823, 65232, 49390, 56845, 158421, 746444);
+insert into pop_por_condicao_atividade values (20, 377846, 32284, 5978, 57394, 59785, 76525, 72938, 170987, 853741);
+insert into pop_por_condicao_atividade values (21, 243643, 11492, 5363, 49035, 39841, 42905, 29114, 89642, 511038);
+insert into pop_por_condicao_atividade values (22, 156512, 11767, 2647, 42658, 22358, 21182, 22947, 46777, 326852);
+insert into pop_por_condicao_atividade values (23, 138748, 6794, 1787, 52924, 11800, 15376, 17879, 31468, 276781);
+insert into pop_por_condicao_atividade values (24, 234407, 10082, 5671, 54190, 28985, 41588, 52300, 109011, 536237);
+insert into pop_por_condicao_atividade values (25, 586622, 43133, 17253, 153844, 66138, 100645, 133715, 278933, 1380287);
+insert into pop_por_condicao_atividade values (26, 534879, 66108, 9615, 163468, 98562, 112985, 105773, 260828, 1352224);
+insert into pop_por_condicao_atividade values (27, 615078, 48719, 4059, 219235, 97438, 99468, 107588, 225325, 1416914);
+insert into pop_por_condicao_atividade values (28, 493708, 34701, 11041, 159311, 108836, 86753, 94640, 178239, 1167233);
+insert into pop_por_condicao_atividade values (29, 364445, 16057, 5585, 78893, 46079, 49570, 61439, 141728, 763799);
+insert into pop_por_condicao_atividade values (30, 122814, 5603, 1400, 25216, 16811, 16811, 17745, 49966, 256370);
+insert into pop_por_condicao_atividade values (31, 738233, 52431, 14680, 159391, 153099, 174072, 134224, 316685, 1742819);
