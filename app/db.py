@@ -36,6 +36,26 @@ class Database:
     pass
 
   #
+  # Get data
+  #
+  def get(self, table_name, zona):
+    self._connect()
+    try:
+      query = "..."
+      if zona == 0:
+        pass # skip where
+      else:
+        query = query + " WHERE ..."
+      result = self.cur.execute(query)
+      return result
+    except Exception as e:
+      print("Error running query")
+      print(e)
+
+    self._disconnect()
+    return False
+
+  #
   # Get zonas
   #
   def get_zonas(self):
@@ -46,10 +66,9 @@ class Database:
       return result
 
     except Exception as e:
-      print("Error running query ")
+      print("Error running query")
       print(e)
 
-    self._disconnect()
     return False
 
   #
@@ -63,7 +82,7 @@ class Database:
       return result
 
     except Exception as e:
-      print("Error running query ")
+      print("Error running query")
       print(e)
 
     self._disconnect()

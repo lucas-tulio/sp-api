@@ -55,3 +55,4 @@ target/
 
 .DS_Store
 db/create-schema.sql
+db/raw_data.txt
