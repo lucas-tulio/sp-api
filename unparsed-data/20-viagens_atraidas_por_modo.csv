@@ -32,12 +32,3 @@ Zona;Ônibus ;Transporte fretado;Transporte escolar;Dirigindo automóvel;Passage
 30;121047.594845106;5054.30622772653;15661.8302098082;96598.9343794578;39829.9081010703;0;6306.97950374264;1106.95650303209;10720.3157170873;2183.28447825442;177530.437921876;903.875515776396;476944.423402938
 31;823812.989810775;67115.5264830294;201154.505228216;655372.50404825;233562.69726476;2451.35799050577;71683.4971551055;178117.156314101;95811.2524799885;26964.9378955635;977459.799977042;5718.76793455913;3339224.9925819
 Total;9383282.74701737;389426.974469574;2011132.12138308;8644290.22214841;3706648.86244865;135155.963626314;3218988.99999998;1141139.88907984;1038960.03762396;267787.89388555;13708189.0757698;70463.2759465733;43715466.0633991
-;;;;;;;;;;;;;
-Notas:;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-Modo principal é o modo de maior hierarquia dentre os utilizados na mesma viagem. A hierarquia, em ordem decrescente, é a seguinte:  ;;;;;;;;;;;;;
-metrô, trem, ônibus, transporte fretado, transporte escolar, táxi, dirigindo automóvel, passageiro de automóvel, motocicleta, bicicleta, outros modos e a pé.;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-"Viagem a pé é aquela realizada a pé da origem ao destino; não se complementa com nenhum outro modo de transporte.  ";;;;;;;;;;;;;
-"Foram consideradas todas as viagens a pé pelos motivos trabalho e escola, independentemente da distância percorrida;";;;;;;;;;;;;;
-para os demais motivos, quando a distância da viagem a pé  foi superior a 500 metros.;;;;;;;;;;;;;

@@ -32,17 +32,3 @@ Zona;Coletivo ;Individual;Motorizado;Não motorizado;Total
 30;149177.667289416;148053.033713392;297230.701002807;179713.722400131;476944.423402938
 31;1341883.67499123;992916.579718064;2334800.25470929;1004424.73787261;3339224.9925819
 Total;16143970.7319498;13595518.3617939;29739489.0937437;13975976.9696553;43715466.0633991
-;;;;;
-Notas:;;;;;
-;;;;;
-São considerados como modo coletivo: metrô, trem, ônibus, transporte fretado, transporte escolar e vans/microônibus/lotação.;;;;;
-;;;;;
-São considerados como modo individual: dirigindo automóvel, passageiro de automóvel, táxi, motocicleta e outros.;;;;;
-;;;;;
-Modo motorizado é a soma dos modos coletivo e individual.;;;;;
-;;;;;
-Modo não-motorizado é a soma dos modos a pé e bicicleta.;;;;;
-;;;;;
-"Viagem a pé é aquela realizada a pé da origem ao destino; não se complementa com nenhum outro modo de transporte.  ";;;;;
-"Foram consideradas todas as viagens a pé pelos motivos trabalho e escola, independentemente da distância percorrida;";;;;;
-para os demais motivos, quando a distância da viagem a pé  foi superior a 500 metros.;;;;;

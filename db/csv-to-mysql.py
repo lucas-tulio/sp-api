@@ -36,7 +36,7 @@ with open("additional-tables.sql", "w") as out:
           out.write("  " + zona_field + " int(11) unsigned not null primary key")
 
           for field in fields[1:]:
-            field = strip_accents(field.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").lower())
+            field = strip_accents(field.replace(" ", "_").replace("(", "").replace(")", "").replace("\n", "").replace("-", "").replace("/", "").replace("__","_").lower())
             table_fields.append(field)
             out.write(",\n  " + field + " int(11)")
 
@@ -54,10 +54,11 @@ with open("additional-tables.sql", "w") as out:
           j = 0
           for value in data:
             
-            if value.strip() == "-":
-              insert_line = "0"
-            else:
-              insert_line = insert_line + value.split(".")[0]
+            v = value
+            if v.strip() == "-" or v.strip() == "":
+              v = "0"
+            
+            insert_line = insert_line + v.split(".")[0].replace("\n", "")
             
             if j != len(data) - 1:
               insert_line = insert_line + ", "

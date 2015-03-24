@@ -32,11 +32,3 @@ Zona;Ônibus;Transporte fretado;Transporte escolar;Dirigindo automóvel;Passagei
 30;123943;4710;15116;96249;38192;0;7204;1107;10720;2183;177530;904;477860
 31;817872;67573;201700;661091;238105;0;66739;185079;95811;26965;977197;6242;3344374
 Total;9383283;389427;2011132;8644290;3706649;135156;3218989;1141140;1038960;267788;13708189;70463;43715466
-;;;;;;;;;;;;;
-Notas:;;;;;;;;;;;;;
-Modo principal é o modo de maior hierarquia dentre os utilizados na mesma viagem. A hierarquia, em ordem decrescente, é a seguinte:  ;;;;;;;;;;;;;
-metrô, trem, ônibus, transporte fretado, transporte escolar, táxi, dirigindo automóvel, passageiro de automóvel, motocicleta, bicicleta, outros modos e a pé.;;;;;;;;;;;;;
-;;;;;;;;;;;;;
-"Viagem a pé é aquela realizada a pé da origem ao destino; não se complementa com nenhum outro modo de transporte.  ";;;;;;;;;;;;;
-"Foram consideradas todas as viagens a pé pelos motivos trabalho e escola, independentemente da distância percorrida;";;;;;;;;;;;;;
-para os demais motivos, quando a distância da viagem a pé  foi superior a 500 metros.;;;;;;;;;;;;;
