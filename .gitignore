@@ -54,6 +54,4 @@ docs/_build/
 target/
 
 .DS_Store
-db/create-schema.sql
-db/raw_data.txt
 method-creator/methods.py
