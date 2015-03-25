@@ -1,7 +1,5 @@
 ### Importar os dados
 
-1. Conecte no MySQL.
+1. Importe o script `db/create-schema.sql` em seu banco MySQL.
 
-1. Crie um schema com o nome `sp_api`.
-
-1. Extraia o arquivo `create-schema.sql.gz` e importe o script em seu banco de dados.
+1. Na raiz do projeto: `python3 run.py`

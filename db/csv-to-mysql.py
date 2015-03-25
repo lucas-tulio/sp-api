@@ -39,8 +39,9 @@ zonas = ["Cambuci, Bom Retiro, República, Sé, Brás, Liberdade, Pari, Santa Ce
   "Carapicuíba, Itapevi, Jandira, Osasco, Pirapora do Bom Jesus, Santana de Parnaíba, Barueri"]
 
 # Output file
-with open("additional-tables.sql", "w") as out:
+with open("create-schema.sql", "w") as out:
 
+  out.write("create schema if not exists sp_api;\n")
   out.write("use sp_api;\n");
 
   # Open all csv files
