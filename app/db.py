@@ -36,17 +36,51 @@ class Database:
     pass
 
   #
+  # Returns general data about every zone
+  #
+  def get_geral(self):
+    self._connect()
+    try:
+      self.cur.execute("""SELECT * FROM geral""")
+      result = self.cur.fetchall()
+      self._disconnect()
+      return result
+
+    except Exception as e:
+      print("Error running query")
+      print(e)
+
+    self._disconnect()
+    return False
+
+  #
+  # Returns general data about one zone
+  #
+  def get_geral_by_zona_id(self, zona_id):
+    self._connect()
+    try:
+      zona_id = int(zona_id)
+      self.cur.execute("""SELECT id, zona FROM zonas where id = %s""", zona_id)
+      result = self.cur.fetchall()
+      self._disconnect()
+      return result
+
+    except Exception as e:
+      print("Error running query")
+      print(e)
+
+    self._disconnect()
+    return False
+
+  #
   # Get data
   #
-  def get(self, table_name, zona):
+  def get(self, table_name):
     self._connect()
     try:
-      query = "..."
-      if zona == 0:
-        pass # skip where
-      else:
-        query = query + " WHERE ..."
+      query = "SELECT * FROM " + table_name
       result = self.cur.execute(query)
+      self._disconnect()
       return result
     except Exception as e:
       print("Error running query")
@@ -55,39 +89,9 @@ class Database:
     self._disconnect()
     return False
 
-  #
-  # Get zonas
-  #
-  def get_zonas(self):
-    self._connect()
-    try:
-      self.cur.execute("""SELECT id, zona FROM zonas""")
-      result = self.cur.fetchall()
-      return result
 
-    except Exception as e:
-      print("Error running query")
-      print(e)
 
-    return False
-
-  #
-  # Get zona
-  #
-  def get_zona(self, id):
-    self._connect()
-    try:
-      self.cur.execute("""SELECT id, zona FROM zonas where id = %s""", id)
-      result = self.cur.fetchall()
-      return result
-
-    except Exception as e:
-      print("Error running query")
-      print(e)
-
-    self._disconnect()
-    return False
-
+#### Will disappear
   def get_moradores_por_domicilio(self):
     self._connect()
     try:

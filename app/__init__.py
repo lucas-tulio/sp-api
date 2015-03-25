@@ -7,34 +7,23 @@ from app.db import Database
 import json
 
 app = Flask(__name__)
-app.config.from_object('config')
 db = Database()
 
 @app.route('/', methods=['GET'])
 def hello():
   return "Hi!"
 
-@app.route('/zona/<int:zona_id>', methods=['GET'])
-def get_zona(zona_id):
-  if zona_id == 0:
-    abort(404)
-  result = db.get_zona(zona_id)
-  return jsonify(result)
-
 @app.route('/zonas', methods=['GET'])
 def get_zonas():
-  result = db.get_zonas()
+  result = db.get_geral()
+  return json.dumps(result)
+
+@app.route('/zona/<int:zona_id>', methods=['GET'])
+def get_zona(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_geral_by_zona_id(zona_id)
   return jsonify(result)
-
-@app.route('/moradores_por_domicilio', methods=['GET'])
-def get_moradores():
-  result = db.get_moradores_por_domicilio()
-  j = json.dumps(result, ensure_ascii=False, indent=2)
-  return app.response_class(j, content_type='application/json; charset=utf8')
-
-@app.errorhandler(404)
-def not_found(error):
-  return make_response(jsonify({'error': 'Not found'}), 404)
 
 if __name__ == '__main__':
   app.run(debug=True)
