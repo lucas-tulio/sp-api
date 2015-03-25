@@ -13,20 +13,22 @@ db = Database()
 def hello():
   return "Hi!"
 
-@app.route('/zona/<int:zona_id>', methods=['GET'])
+@app.route('/zonas/<int:zona_id>', methods=['GET'])
 def get_zona(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_info("geral", zona_id)
+  result = db.get_one("geral", zona_id)
   return json.dumps(result)
 
-# @app.route('/zonas', methods=['GET'])
-# def get_zonas():
-#   result = db.get_geral()
-#   return json.dumps(result)
+@app.route('/zonas', methods=['GET'])
+def get_zonas():
+  result = db.get_all("geral")
+  return json.dumps(result)
 
-  # result = db.get_geral_by_zona_id(zona_id)
-  # return jsonify(result)
 
+
+#
+# App start
+#
 if __name__ == '__main__':
   app.run(debug=True)

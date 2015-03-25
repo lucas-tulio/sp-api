@@ -53,7 +53,7 @@ class Database:
   #
   # Returns one row of info
   #
-  def get_info(self, table_name, id):
+  def get_one(self, table_name, id):
 
     self._connect()
     try:
@@ -91,53 +91,45 @@ class Database:
     return False
 
   #
-  # Returns general data about one zone
+  # Returns all rows
   #
-  def get_geral_by_zona_id(self, zona_id):
+  def get_all(self, table_name):
+
     self._connect()
     try:
-      zona_id = int(zona_id)
-      self.cur.execute("""SELECT id, zona FROM zonas where id = %s""", zona_id)
-      result = self.cur.fetchall()
-      self._disconnect()
-      return result
 
-    except Exception as e:
-      print("Error running query")
-      print(e)
+      # Get meta info
+      meta = self.get_meta(table_name)
 
-    self._disconnect()
-    return False
-
-  #
-  # Get data
-  #
-  def get(self, table_name):
-    self._connect()
-    try:
+      # Query
       query = "SELECT * FROM " + table_name
-      result = self.cur.execute(query)
+      self.cur.execute(query)
+      query_result = self.cur.fetchall()
       self._disconnect()
-      return result
-    except Exception as e:
-      print("Error running query")
-      print(e)
 
-    self._disconnect()
-    return False
+      # Json
+      json_result = {}
+      json_result = OrderedDict(json_result)
 
+      row_count = len(query_result)
+      j = 0
+      for row in query_result:
 
+        i = 0
+        json_row = {}
+        json_row = OrderedDict(json_row)
+        for meta_row in meta:
 
-#### Will disappear
-  def get_moradores_por_domicilio(self):
-    self._connect()
-    try:
-      self.cur.execute("""select z.zona, avg(sp.no_morad) moradores from zonas z inner join sp on sp.zona = z.id group by z.id order by moradores""")
-      result = self.cur.fetchall()
-      json = []
-      for row in result:
-        json.append((row[0], float(str(row[1]))))
-      return json
+          str_column = str(meta_row[0]).replace("(", "").replace(")", "").replace(",", "").replace("'", '"')
+          order = meta_row[1]
+
+          json_row[str_column] = query_result[j][i]
+          i = i + 1
+
+        json_result[j+1] = json_row
+        j = j + 1
+
+      return json_result
 
     except Exception as e:
       print("Error running query")
