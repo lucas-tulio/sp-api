@@ -997,3 +997,7 @@ insert into pop_por_condicao_atividade (zona, ocupado, faz_bico, em_licenca, apo
 insert into pop_por_condicao_atividade (zona, ocupado, faz_bico, em_licenca, aposentado, sem_trabalho, nunca_trabalhou, dona_de_casa, estudante, populacao_total) values ('Juquitiba, São Lourenço da Serra, Taboão da Serra, Embu das Artes, Embu-Guaçu, Itapecerica da Serra', 364445, 16057, 5585, 78893, 46079, 49570, 61439, 141728, 763799);
 insert into pop_por_condicao_atividade (zona, ocupado, faz_bico, em_licenca, aposentado, sem_trabalho, nunca_trabalhou, dona_de_casa, estudante, populacao_total) values ('Cotia, Vargem Grande Paulista', 122814, 5603, 1400, 25216, 16811, 16811, 17745, 49966, 256370);
 insert into pop_por_condicao_atividade (zona, ocupado, faz_bico, em_licenca, aposentado, sem_trabalho, nunca_trabalhou, dona_de_casa, estudante, populacao_total) values ('Carapicuíba, Itapevi, Jandira, Osasco, Pirapora do Bom Jesus, Santana de Parnaíba, Barueri', 738233, 52431, 14680, 159391, 153099, 174072, 134224, 316685, 1742819);
+
+drop table if exists meta;
+
+create table meta as select table_name, column_name, ordinal_position from information_schema.columns where table_schema = 'sp_api';

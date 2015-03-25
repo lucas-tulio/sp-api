@@ -1,4 +1,5 @@
 import pymysql
+from collections import OrderedDict
 
 class Database:
 
@@ -36,15 +37,51 @@ class Database:
     pass
 
   #
-  # Returns general data about every zone
+  # Get table meta data
   #
-  def get_geral(self):
+  def get_meta(self, table_name):
+    try:
+      self.cur.execute("""SELECT column_name, ordinal_position FROM meta WHERE table_name = %s ORDER BY ordinal_position""", table_name)
+      result = self.cur.fetchall()
+      return result
+    except Exception as e:
+      print("Error running meta query")
+      print(e)
+
+    return False
+
+  #
+  # Returns one row of info
+  #
+  def get_info(self, table_name, id):
+
     self._connect()
     try:
-      self.cur.execute("""SELECT * FROM geral""")
-      result = self.cur.fetchall()
+
+      query_id = int(id)
+
+      # Get meta info
+      meta = self.get_meta(table_name)
+
+      # Query
+      query = "SELECT * FROM " + table_name + " WHERE id = " + str(query_id)
+      self.cur.execute(query)
+      query_result = self.cur.fetchall()
       self._disconnect()
-      return result
+
+      # Json
+      json_result = {}
+      json_result = OrderedDict(json_result)
+      i = 0
+      for row in meta:
+
+        str_column = str(row[0]).replace("(", "").replace(")", "").replace(",", "").replace("'", '"')
+        order = row[1]
+
+        json_result[str_column] = query_result[0][i]
+        i = i + 1
+
+      return json_result
 
     except Exception as e:
       print("Error running query")

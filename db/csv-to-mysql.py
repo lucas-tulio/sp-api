@@ -114,3 +114,6 @@ with open("additional-tables.sql", "w") as out:
           out.write(insert_line)
           
         i = i + 1
+
+  out.write("\ndrop table if exists meta;\n")
+  out.write("\ncreate table meta as select table_name, column_name, ordinal_position from information_schema.columns where table_schema = 'sp_api';\n")
