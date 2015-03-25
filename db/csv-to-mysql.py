@@ -67,6 +67,7 @@ with open("additional-tables.sql", "w") as out:
           fields = line.split(";")
           zona_field = fields[0].lower()
           table_fields.append(zona_field)
+          out.write("  id int(11) primary key not null auto_increment,\n")
           out.write("  " + zona_field + " varchar(255)")
 
           for field in fields[1:]:
@@ -83,7 +84,14 @@ with open("additional-tables.sql", "w") as out:
           if data[0] == "" or data[0] == "Total":
             continue
 
-          insert_line = "insert into " + table_name + " values ('" + str(zonas[i-2]) + "', "
+          insert_line = "insert into " + table_name + " (zona, "
+          field_count = 0
+          for field in table_fields[1:]:
+            field_count = field_count + 1
+            insert_line = insert_line + field
+            if field_count < len(fields) - 1:
+              insert_line = insert_line + ", "
+          insert_line = insert_line + ") values ('" + str(zonas[i-2]) + "', "
           
           j = 0
           for value in data:
