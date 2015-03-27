@@ -16,113 +16,16 @@ def hello():
 #
 # Geral
 #
-@app.route('/zonas/<int:zona_id>', methods=['GET'])
+@app.route('/geral/<int:zona_id>', methods=['GET'])
 def get_zona_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
   result = db.get_one("geral", zona_id)
   return json.dumps(result)
 
-@app.route('/zonas', methods=['GET'])
+@app.route('/geral', methods=['GET'])
 def get_zonas():
   result = db.get_all("geral")
-  return json.dumps(result)
-
-
-
-#
-# automoveis_por_residencia
-#
-@app.route('/automoveis_por_residencia/<int:zona_id>', methods=['GET'])
-def get_automoveis_por_residencia_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('automoveis_por_residencia', zona_id)
-  return json.dumps(result)
-
-@app.route('/automoveis_por_residencia', methods=['GET'])
-def get_automoveis_por_residencia():
-  result = db.get_all('automoveis_por_residencia')
-  return json.dumps(result)
-
-
-#
-# emprego_interno_externo
-#
-@app.route('/emprego_interno_externo/<int:zona_id>', methods=['GET'])
-def get_emprego_interno_externo_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('emprego_interno_externo', zona_id)
-  return json.dumps(result)
-
-@app.route('/emprego_interno_externo', methods=['GET'])
-def get_emprego_interno_externo():
-  result = db.get_all('emprego_interno_externo')
-  return json.dumps(result)
-
-
-#
-# empregos_por_classe
-#
-@app.route('/empregos_por_classe/<int:zona_id>', methods=['GET'])
-def get_empregos_por_classe_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('empregos_por_classe', zona_id)
-  return json.dumps(result)
-
-@app.route('/empregos_por_classe', methods=['GET'])
-def get_empregos_por_classe():
-  result = db.get_all('empregos_por_classe')
-  return json.dumps(result)
-
-
-#
-# empregos_por_setor
-#
-@app.route('/empregos_por_setor/<int:zona_id>', methods=['GET'])
-def get_empregos_por_setor_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('empregos_por_setor', zona_id)
-  return json.dumps(result)
-
-@app.route('/empregos_por_setor', methods=['GET'])
-def get_empregos_por_setor():
-  result = db.get_all('empregos_por_setor')
-  return json.dumps(result)
-
-
-#
-# empregos_por_tipo_localidade
-#
-@app.route('/empregos_por_tipo_localidade/<int:zona_id>', methods=['GET'])
-def get_empregos_por_tipo_localidade_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('empregos_por_tipo_localidade', zona_id)
-  return json.dumps(result)
-
-@app.route('/empregos_por_tipo_localidade', methods=['GET'])
-def get_empregos_por_tipo_localidade():
-  result = db.get_all('empregos_por_tipo_localidade')
-  return json.dumps(result)
-
-
-#
-# empregos_por_vinculo
-#
-@app.route('/empregos_por_vinculo/<int:zona_id>', methods=['GET'])
-def get_empregos_por_vinculo_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('empregos_por_vinculo', zona_id)
-  return json.dumps(result)
-
-@app.route('/empregos_por_vinculo', methods=['GET'])
-def get_empregos_por_vinculo():
-  result = db.get_all('empregos_por_vinculo')
   return json.dumps(result)
 
 
@@ -143,98 +46,130 @@ def get_matriculas_escolares_por_tipo():
 
 
 #
-# populacao_por_condicao_atividade
+# empregos_por_setor
 #
-@app.route('/populacao_por_condicao_atividade/<int:zona_id>', methods=['GET'])
-def get_populacao_por_condicao_atividade_one(zona_id):
+@app.route('/empregos_por_setor/<int:zona_id>', methods=['GET'])
+def get_empregos_por_setor_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('populacao_por_condicao_atividade', zona_id)
+  result = db.get_one('empregos_por_setor', zona_id)
   return json.dumps(result)
 
-@app.route('/populacao_por_condicao_atividade', methods=['GET'])
-def get_populacao_por_condicao_atividade():
-  result = db.get_all('populacao_por_condicao_atividade')
+@app.route('/empregos_por_setor', methods=['GET'])
+def get_empregos_por_setor():
+  result = db.get_all('empregos_por_setor')
   return json.dumps(result)
 
 
 #
-# populacao_por_faixa_etaria
+# empregos_por_classe
 #
-@app.route('/populacao_por_faixa_etaria/<int:zona_id>', methods=['GET'])
-def get_populacao_por_faixa_etaria_one(zona_id):
+@app.route('/empregos_por_classe/<int:zona_id>', methods=['GET'])
+def get_empregos_por_classe_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('populacao_por_faixa_etaria', zona_id)
+  result = db.get_one('empregos_por_classe', zona_id)
   return json.dumps(result)
 
-@app.route('/populacao_por_faixa_etaria', methods=['GET'])
-def get_populacao_por_faixa_etaria():
-  result = db.get_all('populacao_por_faixa_etaria')
+@app.route('/empregos_por_classe', methods=['GET'])
+def get_empregos_por_classe():
+  result = db.get_all('empregos_por_classe')
   return json.dumps(result)
 
 
 #
-# populacao_por_genero
+# empregos_por_vinculo
 #
-@app.route('/populacao_por_genero/<int:zona_id>', methods=['GET'])
-def get_populacao_por_genero_one(zona_id):
+@app.route('/empregos_por_vinculo/<int:zona_id>', methods=['GET'])
+def get_empregos_por_vinculo_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('populacao_por_genero', zona_id)
+  result = db.get_one('empregos_por_vinculo', zona_id)
   return json.dumps(result)
 
-@app.route('/populacao_por_genero', methods=['GET'])
-def get_populacao_por_genero():
-  result = db.get_all('populacao_por_genero')
+@app.route('/empregos_por_vinculo', methods=['GET'])
+def get_empregos_por_vinculo():
+  result = db.get_all('empregos_por_vinculo')
   return json.dumps(result)
 
 
 #
-# populacao_por_grau_de_instrucao
+# empregos_por_tipo_localidade
 #
-@app.route('/populacao_por_grau_de_instrucao/<int:zona_id>', methods=['GET'])
-def get_populacao_por_grau_de_instrucao_one(zona_id):
+@app.route('/empregos_por_tipo_localidade/<int:zona_id>', methods=['GET'])
+def get_empregos_por_tipo_localidade_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('populacao_por_grau_de_instrucao', zona_id)
+  result = db.get_one('empregos_por_tipo_localidade', zona_id)
   return json.dumps(result)
 
-@app.route('/populacao_por_grau_de_instrucao', methods=['GET'])
-def get_populacao_por_grau_de_instrucao():
-  result = db.get_all('populacao_por_grau_de_instrucao')
+@app.route('/empregos_por_tipo_localidade', methods=['GET'])
+def get_empregos_por_tipo_localidade():
+  result = db.get_all('empregos_por_tipo_localidade')
   return json.dumps(result)
 
 
 #
-# populacao_por_renda
+# emprego_interno_externo
 #
-@app.route('/populacao_por_renda/<int:zona_id>', methods=['GET'])
-def get_populacao_por_renda_one(zona_id):
+@app.route('/emprego_interno_externo/<int:zona_id>', methods=['GET'])
+def get_emprego_interno_externo_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('populacao_por_renda', zona_id)
+  result = db.get_one('emprego_interno_externo', zona_id)
   return json.dumps(result)
 
-@app.route('/populacao_por_renda', methods=['GET'])
-def get_populacao_por_renda():
-  result = db.get_all('populacao_por_renda')
+@app.route('/emprego_interno_externo', methods=['GET'])
+def get_emprego_interno_externo():
+  result = db.get_all('emprego_interno_externo')
   return json.dumps(result)
 
 
 #
-# renda_familiar_per_capita
+# viagens_produzidas_por_modo
 #
-@app.route('/renda_familiar_per_capita/<int:zona_id>', methods=['GET'])
-def get_renda_familiar_per_capita_one(zona_id):
+@app.route('/viagens_produzidas_por_modo/<int:zona_id>', methods=['GET'])
+def get_viagens_produzidas_por_modo_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('renda_familiar_per_capita', zona_id)
+  result = db.get_one('viagens_produzidas_por_modo', zona_id)
   return json.dumps(result)
 
-@app.route('/renda_familiar_per_capita', methods=['GET'])
-def get_renda_familiar_per_capita():
-  result = db.get_all('renda_familiar_per_capita')
+@app.route('/viagens_produzidas_por_modo', methods=['GET'])
+def get_viagens_produzidas_por_modo():
+  result = db.get_all('viagens_produzidas_por_modo')
+  return json.dumps(result)
+
+
+#
+# viagens_produzidas_por_tipo
+#
+@app.route('/viagens_produzidas_por_tipo/<int:zona_id>', methods=['GET'])
+def get_viagens_produzidas_por_tipo_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('viagens_produzidas_por_tipo', zona_id)
+  return json.dumps(result)
+
+@app.route('/viagens_produzidas_por_tipo', methods=['GET'])
+def get_viagens_produzidas_por_tipo():
+  result = db.get_all('viagens_produzidas_por_tipo')
+  return json.dumps(result)
+
+
+#
+# viagens_produzidas_por_motivo
+#
+@app.route('/viagens_produzidas_por_motivo/<int:zona_id>', methods=['GET'])
+def get_viagens_produzidas_por_motivo_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('viagens_produzidas_por_motivo', zona_id)
+  return json.dumps(result)
+
+@app.route('/viagens_produzidas_por_motivo', methods=['GET'])
+def get_viagens_produzidas_por_motivo():
+  result = db.get_all('viagens_produzidas_por_motivo')
   return json.dumps(result)
 
 
@@ -255,18 +190,18 @@ def get_tempo_medio_viagens():
 
 
 #
-# trabalho_por_vinculo
+# populacao_por_faixa_etaria
 #
-@app.route('/trabalho_por_vinculo/<int:zona_id>', methods=['GET'])
-def get_trabalho_por_vinculo_one(zona_id):
+@app.route('/populacao_por_faixa_etaria/<int:zona_id>', methods=['GET'])
+def get_populacao_por_faixa_etaria_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('trabalho_por_vinculo', zona_id)
+  result = db.get_one('populacao_por_faixa_etaria', zona_id)
   return json.dumps(result)
 
-@app.route('/trabalho_por_vinculo', methods=['GET'])
-def get_trabalho_por_vinculo():
-  result = db.get_all('trabalho_por_vinculo')
+@app.route('/populacao_por_faixa_etaria', methods=['GET'])
+def get_populacao_por_faixa_etaria():
+  result = db.get_all('populacao_por_faixa_etaria')
   return json.dumps(result)
 
 
@@ -287,22 +222,6 @@ def get_viagens_atraidas_por_modo():
 
 
 #
-# viagens_atraidas_por_motivo
-#
-@app.route('/viagens_atraidas_por_motivo/<int:zona_id>', methods=['GET'])
-def get_viagens_atraidas_por_motivo_one(zona_id):
-  if zona_id == 0 or zona_id > 31:
-    abort(404)
-  result = db.get_one('viagens_atraidas_por_motivo', zona_id)
-  return json.dumps(result)
-
-@app.route('/viagens_atraidas_por_motivo', methods=['GET'])
-def get_viagens_atraidas_por_motivo():
-  result = db.get_all('viagens_atraidas_por_motivo')
-  return json.dumps(result)
-
-
-#
 # viagens_atraidas_por_tipo
 #
 @app.route('/viagens_atraidas_por_tipo/<int:zona_id>', methods=['GET'])
@@ -319,50 +238,130 @@ def get_viagens_atraidas_por_tipo():
 
 
 #
-# viagens_por_modo
+# viagens_atraidas_por_motivo
 #
-@app.route('/viagens_por_modo/<int:zona_id>', methods=['GET'])
-def get_viagens_por_modo_one(zona_id):
+@app.route('/viagens_atraidas_por_motivo/<int:zona_id>', methods=['GET'])
+def get_viagens_atraidas_por_motivo_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('viagens_por_modo', zona_id)
+  result = db.get_one('viagens_atraidas_por_motivo', zona_id)
   return json.dumps(result)
 
-@app.route('/viagens_por_modo', methods=['GET'])
-def get_viagens_por_modo():
-  result = db.get_all('viagens_por_modo')
+@app.route('/viagens_atraidas_por_motivo', methods=['GET'])
+def get_viagens_atraidas_por_motivo():
+  result = db.get_all('viagens_atraidas_por_motivo')
   return json.dumps(result)
 
 
 #
-# viagens_por_tipo
+# populacao_por_grau_de_instrucao
 #
-@app.route('/viagens_por_tipo/<int:zona_id>', methods=['GET'])
-def get_viagens_por_tipo_one(zona_id):
+@app.route('/populacao_por_grau_de_instrucao/<int:zona_id>', methods=['GET'])
+def get_populacao_por_grau_de_instrucao_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('viagens_por_tipo', zona_id)
+  result = db.get_one('populacao_por_grau_de_instrucao', zona_id)
   return json.dumps(result)
 
-@app.route('/viagens_por_tipo', methods=['GET'])
-def get_viagens_por_tipo():
-  result = db.get_all('viagens_por_tipo')
+@app.route('/populacao_por_grau_de_instrucao', methods=['GET'])
+def get_populacao_por_grau_de_instrucao():
+  result = db.get_all('populacao_por_grau_de_instrucao')
   return json.dumps(result)
 
 
 #
-# viagens_produzidas_por_motivo
+# populacao_por_genero
 #
-@app.route('/viagens_produzidas_por_motivo/<int:zona_id>', methods=['GET'])
-def get_viagens_produzidas_por_motivo_one(zona_id):
+@app.route('/populacao_por_genero/<int:zona_id>', methods=['GET'])
+def get_populacao_por_genero_one(zona_id):
   if zona_id == 0 or zona_id > 31:
     abort(404)
-  result = db.get_one('viagens_produzidas_por_motivo', zona_id)
+  result = db.get_one('populacao_por_genero', zona_id)
   return json.dumps(result)
 
-@app.route('/viagens_produzidas_por_motivo', methods=['GET'])
-def get_viagens_produzidas_por_motivo():
-  result = db.get_all('viagens_produzidas_por_motivo')
+@app.route('/populacao_por_genero', methods=['GET'])
+def get_populacao_por_genero():
+  result = db.get_all('populacao_por_genero')
+  return json.dumps(result)
+
+
+#
+# populacao_por_renda_mensal
+#
+@app.route('/populacao_por_renda_mensal/<int:zona_id>', methods=['GET'])
+def get_populacao_por_renda_mensal_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('populacao_por_renda_mensal', zona_id)
+  return json.dumps(result)
+
+@app.route('/populacao_por_renda_mensal', methods=['GET'])
+def get_populacao_por_renda_mensal():
+  result = db.get_all('populacao_por_renda_mensal')
+  return json.dumps(result)
+
+
+#
+# renda
+#
+@app.route('/renda/<int:zona_id>', methods=['GET'])
+def get_renda_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('renda', zona_id)
+  return json.dumps(result)
+
+@app.route('/renda', methods=['GET'])
+def get_renda():
+  result = db.get_all('renda')
+  return json.dumps(result)
+
+
+#
+# familias_por_numero_de_automoveis
+#
+@app.route('/familias_por_numero_de_automoveis/<int:zona_id>', methods=['GET'])
+def get_familias_por_numero_de_automoveis_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('familias_por_numero_de_automoveis', zona_id)
+  return json.dumps(result)
+
+@app.route('/familias_por_numero_de_automoveis', methods=['GET'])
+def get_familias_por_numero_de_automoveis():
+  result = db.get_all('familias_por_numero_de_automoveis')
+  return json.dumps(result)
+
+
+#
+# populacao_trabalhadora_por_vinculo
+#
+@app.route('/populacao_trabalhadora_por_vinculo/<int:zona_id>', methods=['GET'])
+def get_populacao_trabalhadora_por_vinculo_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('populacao_trabalhadora_por_vinculo', zona_id)
+  return json.dumps(result)
+
+@app.route('/populacao_trabalhadora_por_vinculo', methods=['GET'])
+def get_populacao_trabalhadora_por_vinculo():
+  result = db.get_all('populacao_trabalhadora_por_vinculo')
+  return json.dumps(result)
+
+
+#
+# populacao_por_condicao_atividade
+#
+@app.route('/populacao_por_condicao_atividade/<int:zona_id>', methods=['GET'])
+def get_populacao_por_condicao_atividade_one(zona_id):
+  if zona_id == 0 or zona_id > 31:
+    abort(404)
+  result = db.get_one('populacao_por_condicao_atividade', zona_id)
+  return json.dumps(result)
+
+@app.route('/populacao_por_condicao_atividade', methods=['GET'])
+def get_populacao_por_condicao_atividade():
+  result = db.get_all('populacao_por_condicao_atividade')
   return json.dumps(result)
 
 
