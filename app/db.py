@@ -109,8 +109,6 @@ class Database:
 
       # Json
       json_result = []
-      row_count = len(query_result)
-      json_result.append({"itens": row_count})
 
       j = 0
       for row in query_result:
@@ -121,14 +119,13 @@ class Database:
         for meta_row in meta:
 
           str_column = str(meta_row[0]).replace("(", "").replace(")", "").replace(",", "").replace("'", '"')
-          order = meta_row[1]
-
           json_row[str_column] = query_result[j][i]
           i = i + 1
 
-        json_result.append([json_row])
+        json_result.append(json_row)
         j = j + 1
 
+      print(json_result)
       return json_result
 
     except Exception as e:
