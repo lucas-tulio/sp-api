@@ -16,7 +16,7 @@ tables = [
 'viagens_atraidas_por_motivo',
 'populacao_por_grau_de_instrucao',
 'populacao_por_genero',
-'populacao_por_renda_mensal',
+'populacao_por_renda_familiar',
 'renda',
 'familias_por_numero_de_automoveis',
 'populacao_trabalhadora_por_vinculo',
