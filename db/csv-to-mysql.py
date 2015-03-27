@@ -45,10 +45,12 @@ with open("create-schema.sql", "w") as out:
   out.write("use sp_api;\n");
 
   # Open all csv files
-  for filename in os.listdir("../unparsed-data/"):
+  for filename in os.listdir("../parsed-data/"):
 
     # Should loop through all files in directory
-    with open("../unparsed-data/" + filename) as f:
+    with open("../parsed-data/" + filename) as f:
+
+      print(filename)
 
       table_name = filename.split("-")[1].split(".")[0]
       table_fields = []
