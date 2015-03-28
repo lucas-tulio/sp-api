@@ -3,6 +3,7 @@ from flask import Flask
 from flask import jsonify
 from flask import abort
 from flask import make_response
+from flask import request
 from app.db import Database
 import json
 
@@ -11,7 +12,8 @@ db = Database()
 
 @app.route('/', methods=['GET'])
 def hello():
-  return "Hi!"
+  out = "<p>Hi!<br/>IP: " + request.remote_addr + "<br/>User Agent: " + str(request.user_agent) + "</p>"
+  return out
 
 #
 # Geral
