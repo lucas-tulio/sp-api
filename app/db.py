@@ -125,7 +125,6 @@ class Database:
         json_result.append(json_row)
         j = j + 1
 
-      print(json_result)
       return json_result
 
     except Exception as e:
