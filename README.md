@@ -11,7 +11,7 @@ Dados podem conter erros de arredondamento.
 
 Todos os métodos são do tipo GET e de acesso livre, sem a necessidade de autenticação. As notas sobre cada tabela são idênticas às da planilha da pesquisa de mobilidade urbana, disponível no site do Metrô.
 
-Todos os métodos possuem o parâmetro opcional `id` da zona. Por exemplo: `http://spapi.co/geral/3` trará apenas dados sobre a zona de id 3.
+Todos os métodos possuem o parâmetro opcional `id` da zona. Por exemplo: `http://spapi.co/geral/3` trará apenas dados sobre a zona de id `3`.
 
 #### `/geral`
 
