@@ -21,6 +21,7 @@ def hello():
 @app.route('/geral/<int:zona_id>', methods=['GET'])
 def get_zona_one(zona_id):
   if zona_id == 0 or zona_id > 31:
+    db.log(request)
     abort(404)
   result = db.get_one("geral", zona_id)
   return json.dumps(result)

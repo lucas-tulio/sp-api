@@ -33,8 +33,7 @@ class Database:
   #
   # Logs requests
   #
-  def log_request(self, ip, user_agent, method, params):
-    
+  def log(self, request):
     return False
 
   #
