@@ -34,6 +34,7 @@ class Database:
   # Logs requests
   #
   def log(self, request):
+    print(request.remote_addr)
     return False
 
   #
