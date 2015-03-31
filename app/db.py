@@ -35,6 +35,7 @@ class Database:
   #
   def log(self, request):
     print(request.remote_addr)
+    print(request.user_agent)
     return False
 
   #
