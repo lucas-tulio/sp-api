@@ -34,8 +34,17 @@ class Database:
   # Logs requests
   #
   def log(self, request):
-    print(request.remote_addr)
-    print(request.user_agent)
+    self._connect()
+    try:
+      self.cur.execute("""INSERT INTO logs (ip, user_agent, path) VALUES (%s, %s, %s)""", (str(request.remote_addr), str(request.user_agent), str(request.path)))
+      self.conn.commit()
+      self._disconnect()
+      return True
+    except Exception as e:
+      print("Error saving logs")
+      print(e)
+
+    self._disconnect()
     return False
 
   #

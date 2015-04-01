@@ -33,12 +33,14 @@ with open("methods.py", "w") as out:
 #\n\
 @app.route('/" + item + "/<int:zona_id>', methods=['GET'])\n\
 def get_" + item + "_one(zona_id):\n\
+  db.log(request)\n\
   if zona_id == 0 or zona_id > 31:\n\
     abort(404)\n\
   result = db.get_one('" + item + "', zona_id)\n\
   return json.dumps(result)\n\n\
 @app.route('/" + item + "', methods=['GET'])\n\
 def get_" + item + "():\n\
+  db.log(request)\n\
   result = db.get_all('" + item + "')\n\
   return json.dumps(result)\n\n"
 

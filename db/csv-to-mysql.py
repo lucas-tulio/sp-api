@@ -122,4 +122,4 @@ with open("create-schema.sql", "w") as out:
   out.write("\ncreate table meta as select table_name, column_name, ordinal_position from information_schema.columns where table_schema = 'sp_api';\n")
 
   out.write("\ndrop table if exists logs;\n")
-  out.write("\ncreate table logs (id int primary key not null auto_increment, ip varchar(20), user_agent varchar(255), method varchar(255), params varchar(255), created_at timestamp default current_timestamp) engine=innodb, default charset=utf8;\n")
+  out.write("\ncreate table logs (id int primary key not null auto_increment, ip varchar(20), user_agent varchar(255), path varchar(255), created_at timestamp default current_timestamp) engine=innodb, default charset=utf8;\n")
