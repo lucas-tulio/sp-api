@@ -34,6 +34,10 @@ class Database:
   # Logs requests
   #
   def log(self, request):
+
+    if str(request.path) == "/favicon.ico":
+      return
+
     self._connect()
     try:
       self.cur.execute("""INSERT INTO logs (ip, user_agent, path) VALUES (%s, %s, %s)""", (str(request.remote_addr), str(request.user_agent), str(request.path)))
