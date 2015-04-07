@@ -34,7 +34,9 @@ def hello():
 <li><a href='""" + request.url + """tempo_medio_viagens'>/tempo_medio_viagens</a></li>
 <li><a href='""" + request.url + """viagens_atraidas_por_modo'>/viagens_atraidas_por_modo</a></li>
 <li><a href='""" + request.url + """viagens_atraidas_por_tipo'>/viagens_atraidas_por_tipo</a></li>
-<li><a href='""" + request.url + """viagens_atraidas_por_motivo'>/viagens_atraidas_por_motivo</li></u</a></li></ul>"""
+<li><a href='""" + request.url + """viagens_atraidas_por_motivo'>/viagens_atraidas_por_motivo</li></u</a></li></ul>
+<p><a href='http://github.com/lucasdnd/sp-api'>View source code on Github</a></p>
+"""
 
 @app.errorhandler(404)
 def page_not_found(e):
