@@ -12,7 +12,7 @@ db = Database()
 
 @app.route('/', methods=['GET'])
 def hello():
-  return """<p>Métodos disponíveis:</p><ul>
+  return """<ul>
 <li><a href='""" + request.url + """geral'>/geral</a></li>
 <li><a href='""" + request.url + """populacao_por_faixa_etaria'>/populacao_por_faixa_etaria</a></li>
 <li><a href='""" + request.url + """populacao_por_grau_de_instrucao'>/populacao_por_grau_de_instrucao</a></li>
