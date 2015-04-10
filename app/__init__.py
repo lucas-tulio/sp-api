@@ -4,6 +4,7 @@ from flask import jsonify
 from flask import abort
 from flask import make_response
 from flask import request
+from flask import render_template
 from app.db import Database
 import json
 
@@ -12,31 +13,7 @@ db = Database()
 
 @app.route('/', methods=['GET'])
 def hello():
-  return """<ul>
-<li><a href='""" + request.url + """geral'>/geral</a></li>
-<li><a href='""" + request.url + """populacao_por_faixa_etaria'>/populacao_por_faixa_etaria</a></li>
-<li><a href='""" + request.url + """populacao_por_grau_de_instrucao'>/populacao_por_grau_de_instrucao</a></li>
-<li><a href='""" + request.url + """populacao_por_genero'>/populacao_por_genero</a></li>
-<li><a href='""" + request.url + """populacao_por_renda_familiar'>/populacao_por_renda_familiar</a></li>
-<li><a href='""" + request.url + """matriculas_escolares_por_tipo'>/matriculas_escolares_por_tipo</a></li>
-<li><a href='""" + request.url + """renda'>/renda</a></li>
-<li><a href='""" + request.url + """populacao_trabalhadora_por_vinculo'>/populacao_trabalhadora_por_vinculo</a></li>
-<li><a href='""" + request.url + """populacao_por_condicao_atividade'>/populacao_por_condicao_atividade</a></li>
-<li><a href='""" + request.url + """empregos_por_setor'>/empregos_por_setor</a></li>
-<li><a href='""" + request.url + """empregos_por_classe'>/empregos_por_classe</a></li>
-<li><a href='""" + request.url + """empregos_por_vinculo'>/empregos_por_vinculo</a></li>
-<li><a href='""" + request.url + """empregos_por_tipo_localidade'>/empregos_por_tipo_localidade</a></li>
-<li><a href='""" + request.url + """emprego_interno_externo'>/emprego_interno_externo</a></li>
-<li><a href='""" + request.url + """familias_por_numero_de_automoveis'>/familias_por_numero_de_automoveis</a></li>
-<li><a href='""" + request.url + """viagens_produzidas_por_modo'>/viagens_produzidas_por_modo</a></li>
-<li><a href='""" + request.url + """viagens_produzidas_por_tipo'>/viagens_produzidas_por_tipo</a></li>
-<li><a href='""" + request.url + """viagens_produzidas_por_motivo'>/viagens_produzidas_por_motivo</a></li>
-<li><a href='""" + request.url + """tempo_medio_viagens'>/tempo_medio_viagens</a></li>
-<li><a href='""" + request.url + """viagens_atraidas_por_modo'>/viagens_atraidas_por_modo</a></li>
-<li><a href='""" + request.url + """viagens_atraidas_por_tipo'>/viagens_atraidas_por_tipo</a></li>
-<li><a href='""" + request.url + """viagens_atraidas_por_motivo'>/viagens_atraidas_por_motivo</li></u</a></li></ul>
-<p><a href='http://github.com/lucasdnd/sp-api'>View source code on Github</a></p>
-"""
+  return render_template('index.html')
 
 @app.errorhandler(404)
 def page_not_found(e):
