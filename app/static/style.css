@@ -3,9 +3,7 @@ html, body {
   font-size: 18px;
   color: #404040;
 
-  height: 100%;
-  margin: 0;
-  padding: 0;
+  /*padding-bottom: 60px;*/
 }
 
 h1 {
@@ -51,16 +49,21 @@ a.links:hover {
   text-decoration: underline;
 }
 
+.source {
+  margin: 30px;
+  text-align: center;
+}
+
 /* Mobile responsive */
 
 @media screen and (max-width: 420px) {
   #title {
     padding-top: 40px;
   }
-  .links-list {
-    margin-bottom: 100px;
-  }
   #footer {
     height: 80px;
+  }
+  html, body {
+    padding-bottom: 40px;
   }
 }
